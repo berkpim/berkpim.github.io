@@ -67,7 +67,7 @@ var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-anomaly-icon.png',
 
 
 // test draggable marker
-var marker = L.marker(map.unproject([8536, 1560], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(area);
+var marker = L.marker(map.unproject([7704, 5284], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(area);
 
 marker.on('dragend', function(e) {
 	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
