@@ -1,1 +1,1 @@
-#README
+[berkpim.github.io/stalcraft/map](https://berkpim.github.io/stalcraft/map)
