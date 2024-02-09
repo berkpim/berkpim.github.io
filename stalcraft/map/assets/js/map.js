@@ -28,6 +28,7 @@ map.setMaxBounds(new L.LatLngBounds(
 // layer groups
 var zone = L.layerGroup().addTo(map);
 var base = L.layerGroup().addTo(map);
+var conquestbase = L.layerGroup().addTo(map);
 var mapchange = L.layerGroup().addTo(map);
 var underground = L.layerGroup().addTo(map);
 var portal = L.layerGroup().addTo(map);
@@ -40,6 +41,7 @@ var test = L.layerGroup().addTo(map);
 var main = {
 	"Zones" : zone,
 	"Bases" : base,
+	"Conquest Bases" : conquestbase,
 	"Map Change" : mapchange,
 	"Underground" : underground,
 	"Portal" : portal,
@@ -65,9 +67,13 @@ var areaTooltip = {
 var testIcon = L.icon({iconUrl: 'assets/images/icons/test-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var blankIcon = L.icon({iconUrl: 'assets/images/icons/blank-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var baseIcon = L.icon({iconUrl: 'assets/images/icons/base-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var conquestBaseIcon = L.icon({iconUrl: 'assets/images/icons/conquest-base-icon.png', iconSize: [36, 36], iconAnchor: [18, 18]});
 var mapChangeIcon = L.icon({iconUrl: 'assets/images/icons/map-change-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var oneWayIcon = L.icon({iconUrl: 'assets/images/icons/one-way-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var undergroundIcon = L.icon({iconUrl: 'assets/images/icons/underground-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var mapPortalIcon = L.icon({iconUrl: 'assets/images/icons/map-portal-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var dangerousLocationIcon = L.icon({iconUrl: 'assets/images/icons/dangerous-location-icon.png', iconSize: [18, 18], iconAnchor: [9, 9]});
+var wildLocationIcon = L.icon({iconUrl: 'assets/images/icons/wild-location-icon.png', iconSize: [18, 18], iconAnchor: [9, 9]});
 var shelterIcon = L.icon({iconUrl: 'assets/images/icons/shelter-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
 // events
@@ -88,7 +94,7 @@ var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-anomaly-icon.png',
 
 
 // test draggable marker
-var marker = L.marker(map.unproject([6068, 5908], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
+var marker = L.marker(map.unproject([8644, 12488], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
 
 marker.on('dragend', function(e) {
 	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
@@ -111,10 +117,10 @@ var	theGraveyard = L.marker(map.unproject([10686, 6224], map.getMaxZoom()), {ico
 var	thePathOfFools = L.marker(map.unproject([5504, 4834], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('The Path of Fools', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
 var	armyWarehouse = L.marker(map.unproject([9018, 4942], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('Army Warehouses', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
 var	radar = L.marker(map.unproject([11434, 4396], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('Radar', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
-var	limansk = L.marker(map.unproject([5124, 2688], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('Limansk', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
-var	theRedForest = L.marker(map.unproject([6528, 2391], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('The Red Forest', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
-var	yanovOutskirts = L.marker(map.unproject([8618, 2298], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('Yanov Outskirts', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
-var	backWater = L.marker(map.unproject([11084, 1226], map.getMaxZoom()), {icon:blankIcon}).bindTooltip('Back Water', {direction: 'center', permanent: true, offset: [0, 6], ...areaTooltip}, areaTooltip).addTo(zone);
+var	limansk = L.marker(map.unproject([5124, 2688], map.getMaxZoom()), {icon:dangerousLocationIcon}).bindTooltip('Limansk', {direction: 'center', permanent: true, offset: [65, 0], ...areaTooltip}, areaTooltip).addTo(zone);
+var	theRedForest = L.marker(map.unproject([6528, 2391], map.getMaxZoom()), {icon:dangerousLocationIcon}).bindTooltip('The Red Forest', {direction: 'center', permanent: true, offset: [105, 0], ...areaTooltip}, areaTooltip).addTo(zone);
+var	yanovOutskirts = L.marker(map.unproject([8618, 2298], map.getMaxZoom()), {icon:dangerousLocationIcon}).bindTooltip('Yanov Outskirts', {direction: 'center', permanent: true, offset: [105, 0], ...areaTooltip}, areaTooltip).addTo(zone);
+var	backWater = L.marker(map.unproject([11084, 1226], map.getMaxZoom()), {icon:wildLocationIcon}).bindTooltip('Back Water', {direction: 'center', permanent: true, offset: [80, 0], ...areaTooltip}, areaTooltip).addTo(zone);
 
 // markers and popups
 // bases
@@ -132,6 +138,19 @@ var mercenaryCampMarkerPopup = L.popup().setContent("Mercenary Camp");
 var mercenaryCampMarker = L.marker(map.unproject([5670, 5052], map.getMaxZoom()), {icon:baseIcon}).bindPopup(mercenaryCampMarkerPopup).addTo(base);
 var dutyBaseMarkerPopup = L.popup().setContent("Duty Base");
 var dutyBaseMarker = L.marker(map.unproject([9112, 6194], map.getMaxZoom()), {icon:baseIcon}).bindPopup(dutyBaseMarkerPopup).addTo(base);
+//conquest
+var pumpingStationMarkerPopup = L.popup().setContent("Pumping Station (Lvl. I)");
+var pumpingStationMarker = L.marker(map.unproject([6054, 1257], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
+var pumpingStationMarkerPopup = L.popup().setContent("Duga Station (Lvl. II)");
+var pumpingStationMarker = L.marker(map.unproject([6571, 767], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
+var pumpingStationMarkerPopup = L.popup().setContent("Khrushchevka (Lvl. I)");
+var pumpingStationMarker = L.marker(map.unproject([7285, 961], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
+var pumpingStationMarkerPopup = L.popup().setContent("Yanov Train Station (Lvl. II)");
+var pumpingStationMarker = L.marker(map.unproject([8328, 756], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
+var pumpingStationMarkerPopup = L.popup().setContent("Cooling Tower (Lvl. I)");
+var pumpingStationMarker = L.marker(map.unproject([8333, 1623], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
+var pumpingStationMarkerPopup = L.popup().setContent("Warehouse (Lvl. I)");
+var pumpingStationMarker = L.marker(map.unproject([8969, 1431], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
 
 // map change
 // the swamps
@@ -261,6 +280,8 @@ var mapChangeMarkerPopup = L.popup().setContent("The Path of Fools - The Red For
 var mapChangeMarker = L.marker(map.unproject([6607, 4114], map.getMaxZoom()), {icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("The Path of Fools - The Red Forest");
 var mapChangeMarker = L.marker(map.unproject([6870, 3904], map.getMaxZoom()), {rotationAngle: -45, icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([5859, 4191], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 
 // the red forest
 var mapChangeMarkerPopup = L.popup().setContent("The Red Forest - Yanov Outskirts");
@@ -399,13 +420,59 @@ var miniBossMarker = L.marker(map.unproject([5114, 2424], map.getMaxZoom()), {ic
 // anomalies
 
 // shelters
-// the red forest
-var shelterMarkerPopup = L.popup().setContent("Confirmed");
-var shelterMarker = L.marker(map.unproject([7246, 3093], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+// the swamps
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([4958, 15732], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6231, 15326], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6231, 15101], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([4593, 14479], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([4543, 13740], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([4519, 13658], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([4409, 13309], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5937, 13130], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5789, 14477], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6036, 14109], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6585, 13856], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
-// the path of fools
+// the cordon
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8542, 11005], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8582, 11633], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9000, 11714], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9341, 11660], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7742, 12362], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7953, 12355], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9611, 11990], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9697, 12462], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9671, 12670], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8041, 12669], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8440, 12961], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 var shelterMarkerPopup = L.popup().setContent("Confirmed");
-var shelterMarker = L.marker(map.unproject([6662, 5033], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarker = L.marker(map.unproject([9213, 13442], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7887, 13561], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8115, 13591], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
 // dead city
 var shelterMarkerPopup = L.popup().setContent("Confirmed");
@@ -423,8 +490,15 @@ var shelterMarker = L.marker(map.unproject([5483, 5855], map.getMaxZoom()), {ico
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([5916, 5642], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
-var shelterMarkerPopup = L.popup().setContent("Esto es un refugio");
+// the path of fools
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+var shelterMarker = L.marker(map.unproject([6662, 5033], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
 var shelterMarker = L.marker(map.unproject([5670, 5101], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+
+// the red forest
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+var shelterMarker = L.marker(map.unproject([7246, 3093], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
 // add layer control
 L.control.layers(null, main, {collapsed:false}).addTo(map);
