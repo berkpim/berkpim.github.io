@@ -91,7 +91,7 @@ var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSiz
 
 
 // test draggable marker
-var marker = L.marker(map.unproject([10890, 1096], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
+var marker = L.marker(map.unproject([7384, 4052], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
 
 marker.on('dragend', function(e) {
 	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
@@ -575,7 +575,112 @@ var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([10211, 9542], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
 // the pit
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5720, 8921], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6160, 8020], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6073, 8003], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5884, 7972], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6415, 7907], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5187, 7860], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5832, 7675], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6517, 7666], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5355, 7377], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([5743, 6926], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
+// rostok factory
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6500, 7350], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6983, 7332], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([6971, 6929], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7277, 7256], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7476, 6857], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7717, 7338], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7616, 7186], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7840, 7121], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7952, 7338], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([7991, 7020], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8118, 6785], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8346, 7227], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8523, 7039], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8616, 7253], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8699, 7341], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([8695, 6981], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9194, 7775], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9245, 8052], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([9493, 8248], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+
+// the forest
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10132, 8398], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10629, 8106], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10530, 8011], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10484, 7941], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10576, 7927], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10882, 7983], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10489, 7826], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10705, 7811], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10773, 7790], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10621, 7728], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10905, 7678], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10971, 7660], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([11088, 7569], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10936, 7520], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10382, 7338], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([11402, 7552], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([11624, 7669], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([11514, 7520], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([11596, 7433], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([11471, 7326], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+
+// the graveyard
+var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarker = L.marker(map.unproject([10787, 6348], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
 // dead city
 var shelterMarkerPopup = L.popup().setContent("Confirmed");
