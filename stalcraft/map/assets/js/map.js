@@ -19,10 +19,7 @@ L.tileLayer('assets/images/tiles/overworld/{z}/{x}/{y}.png', {
 		crs: L.CRS.Simple,
 	}).addTo(map);
 
-map.setMaxBounds(new L.LatLngBounds(
-	map.unproject(mapSW, map.getMaxZoom()),
-	map.unproject(mapNE, map.getMaxZoom())
-));
+map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
 // layer groups
@@ -90,7 +87,7 @@ var miniBossIcon = L.icon({iconUrl: 'assets/images/icons/miniboss-event.png', ic
 // anomalies
 var protoAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/proto-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var researchAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/research-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-anomaly-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
 
 // test draggable marker
@@ -138,6 +135,7 @@ var mercenaryCampMarkerPopup = L.popup().setContent("Mercenary Camp");
 var mercenaryCampMarker = L.marker(map.unproject([5670, 5052], map.getMaxZoom()), {icon:baseIcon}).bindPopup(mercenaryCampMarkerPopup).addTo(base);
 var dutyBaseMarkerPopup = L.popup().setContent("Duty Base");
 var dutyBaseMarker = L.marker(map.unproject([9112, 6194], map.getMaxZoom()), {icon:baseIcon}).bindPopup(dutyBaseMarkerPopup).addTo(base);
+
 //conquest
 var pumpingStationMarkerPopup = L.popup().setContent("Pumping Station (Lvl. I)");
 var pumpingStationMarker = L.marker(map.unproject([6054, 1257], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
@@ -418,6 +416,8 @@ var miniBossMarkerPopup = L.popup().setContent("Esto es un campamento de mutante
 var miniBossMarker = L.marker(map.unproject([5114, 2424], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(miniBossMarkerPopup).addTo(event);
 
 // anomalies
+var stasisMarkerPopup = L.popup().setContent("Stasis");
+var stasisMarker = L.marker(map.unproject([7138, 574], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
 
 // shelters
 // the swamps
