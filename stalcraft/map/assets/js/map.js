@@ -91,7 +91,7 @@ var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSiz
 
 
 // test draggable marker
-var marker = L.marker(map.unproject([8644, 12488], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
+var marker = L.marker(map.unproject([8516, 9432], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
 
 marker.on('dragend', function(e) {
 	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
