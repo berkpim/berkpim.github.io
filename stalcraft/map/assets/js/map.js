@@ -30,18 +30,25 @@ var conquestbase = L.layerGroup().addTo(map);
 var mapchange = L.layerGroup().addTo(map);
 var underground = L.layerGroup().addTo(map);
 var portal = L.layerGroup().addTo(map);
+var bubble = L.layerGroup().addTo(map);
 // events
 var rodent = L.layerGroup().addTo(map);
 var dog = L.layerGroup().addTo(map);
-var flech = L.layerGroup().addTo(map);
+var flesh = L.layerGroup().addTo(map);
 var boar = L.layerGroup().addTo(map);
 var snork = L.layerGroup().addTo(map);
 var bloodsucker = L.layerGroup().addTo(map);
+var zombie = L.layerGroup().addTo(map);
+var rescue = L.layerGroup().addTo(map);
+var military = L.layerGroup().addTo(map);
+var monolith = L.layerGroup().addTo(map);
 var pseudogiant = L.layerGroup().addTo(map);
 var chimera = L.layerGroup().addTo(map);
+//anomaly
 var anomaly = L.layerGroup().addTo(map);
 // others
 var shelter = L.layerGroup();
+var enterspawn = L.layerGroup();
 var exitspawn = L.layerGroup();
 var test = L.layerGroup().addTo(map);
 
@@ -52,13 +59,18 @@ var main = {
 	"Conquest Bases" : conquestbase,
 	"Map Change" : mapchange,
 	"Underground" : underground,
-	"Portal" : portal,
+	"Portals" : portal,
+	"Bubbles": bubble,
 	"Rodents" : rodent,
 	"Dogs" : dog,
-	"Fleches": flech,
+	"Fleshes": flesh,
 	"Boars": boar,
 	"Snorks": snork,
 	"Bloodsuckers": bloodsucker,
+	"Zombies": zombie,
+	"Rescue": rescue,
+	"Military": military,
+	"Monolith": monolith,
 	"Chimera": chimera,
 	"Pseudogiant": pseudogiant,
 	"Anomalies" : anomaly
@@ -66,6 +78,7 @@ var main = {
 
 var secondary = {
 	"Shelters" : shelter,
+	"Enter Spawns": enterspawn,
 	"Exit Spawns": exitspawn
 }
 
@@ -91,7 +104,9 @@ var mapPortalIcon = L.icon({iconUrl: 'assets/images/icons/map-portal-icon.png', 
 var dangerousLocationIcon = L.icon({iconUrl: 'assets/images/icons/dangerous-location-icon.png', iconSize: [18, 18], iconAnchor: [9, 9]});
 var wildLocationIcon = L.icon({iconUrl: 'assets/images/icons/wild-location-icon.png', iconSize: [18, 18], iconAnchor: [9, 9]});
 var shelterIcon = L.icon({iconUrl: 'assets/images/icons/shelter-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var enterSpawnIcon = L.icon({iconUrl: 'assets/images/icons/enter-spawn-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var exitSpawnIcon = L.icon({iconUrl: 'assets/images/icons/exit-spawn-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var bubbleIcon = L.icon({iconUrl: 'assets/images/icons/bubble-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
 // events
 var zombieIcon = L.icon({iconUrl: 'assets/images/icons/zombie-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
@@ -101,7 +116,9 @@ var campIcon = L.icon({iconUrl: 'assets/images/icons/camp-event.png', iconSize: 
 var militaryIcon = L.icon({iconUrl: 'assets/images/icons/military-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var goldMilitaryIcon = L.icon({iconUrl: 'assets/images/icons/gold-military-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var monolithCampIcon = L.icon({iconUrl: 'assets/images/icons/monolith-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var covenantCampIcon = L.icon({iconUrl: 'assets/images/icons/covenant-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var freedomCampIcon = L.icon({iconUrl: 'assets/images/icons/freedom-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var dutyCampIcon = L.icon({iconUrl: 'assets/images/icons/duty-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var miniBossIcon = L.icon({iconUrl: 'assets/images/icons/miniboss-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var redAirdropIcon = L.icon({iconUrl: 'assets/images/icons/red-airdrop-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var blueAirdropIcon = L.icon({iconUrl: 'assets/images/icons/blue-airdrop-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
@@ -109,6 +126,7 @@ var goldAirdropIcon = L.icon({iconUrl: 'assets/images/icons/gold-airdrop-event.p
 var occupiedBuildingIcon = L.icon({iconUrl: 'assets/images/icons/occupied-building-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var monolithAntennaIcon = L.icon({iconUrl: 'assets/images/icons/monolith-antenna-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var monolithOutpostIcon = L.icon({iconUrl: 'assets/images/icons/monolith-outpost-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var chimeraIcon = L.icon({iconUrl: 'assets/images/icons/chimera-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
 // anomalies
 var protoAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/proto-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
@@ -422,6 +440,11 @@ var mapPortalMarkerPopup = L.popup().setContent("to Backwater");
 var mapPortalMarker = L.marker(map.unproject([9272, 1226], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
 var mapPortalMarkerPopup = L.popup().setContent("to Backwater");
 var mapPortalMarker = L.marker(map.unproject([9337, 1399], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+
+
+// bubbles
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([6087, 1919], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
 
 
 // events
@@ -847,7 +870,7 @@ var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([11455, 1618], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 
 
-// fleches
+// fleshes
 // the swamps
 // the cordon
 // agroprom
@@ -1328,12 +1351,439 @@ var bloodsuckerMarker = L.marker(map.unproject([11219, 1831], map.getMaxZoom()),
 
 
 // chimera
-// the path of fools
-// army warehouses
 // the red forest
+var chimeraMarkerPopup = L.popup().setContent("Chimera Spawn");
+var chimeraMarker = L.marker(map.unproject([7526, 1322], map.getMaxZoom()), {icon:chimeraIcon}).bindPopup(chimeraMarkerPopup).addTo(chimera);
 // yanov outskirts
 // limansk
 // backwater
+
+
+// military
+// the swamps
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([4742, 14530], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([4880, 14418], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([4764, 14278], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5366, 14407], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5272, 14585], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5683, 14377], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6047, 14155], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6231, 14131], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+// agroprom
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([4856, 10216], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([4941, 10661], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5145, 9599], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5438, 10957], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5685, 9825], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([5995, 9487], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6028, 10069], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6042, 11118], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6305, 9709], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6553, 10685], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6623, 10534], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6678, 10319], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([6984, 10096], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([7041, 10473], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+// the dump
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([7915, 10178], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([9134, 10625], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([9209, 10681], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+// the dark valley
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10220, 9956], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10513, 9302], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10494, 9595], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10480, 9809], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10422, 10317], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10420, 11053], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([10922, 10137], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([11096, 10258], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
+var militaryMarker = L.marker(map.unproject([11222, 9587], map.getMaxZoom()), {icon:militaryIcon}).bindPopup(militaryMarkerPopup).addTo(military);
+
+
+// zombies
+// the pit
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5460, 8318], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5381, 8194], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6523, 8269], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5911, 7892], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6406, 7729], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5996, 7500], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5803, 7631], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5752, 7685], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5396, 7386], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5536, 7129], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// the forest
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8943, 7824], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9167, 7997], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9330, 8037], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9343, 7756], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9533, 7301], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9969, 7639], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10389, 7705], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10484, 7747], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10603, 7980], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10650, 7866], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10754, 7882], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10830, 7759], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10704, 7616], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10827, 7426], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10733, 7367], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([11604, 7458], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// the dead city
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4825, 6287], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4825, 6088], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4771, 5966], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4492, 5848], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4954, 5770], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5133, 5982], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5255, 5950], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5450, 5851], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5284, 5647], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// the graveyard
+// the path of fools
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4165, 4997], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4517, 5167], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5219, 4486], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5549, 4500], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5689, 4409], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5847, 4493], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5765, 4696], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6194, 4521], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6619, 4228], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([7297, 4508], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// army warehouses
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8176, 5627], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8891, 5433], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9041, 5373], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8700, 4916], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8760, 4637], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8712, 4012], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9326, 4290], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9285, 4733], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9574, 4923], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9934, 4822], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// the red forest
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6192, 3624], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6936, 3058], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5911, 2878], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5864, 2760], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6260, 3023], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([7128, 2703], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5709, 998], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6709, 1413], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6793, 1295], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6782, 1180], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6599, 1290], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// yanov outskirts
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9598, 3217], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9526, 2794], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8176, 1882], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([7846, 1626], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8183, 1465], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8578, 1272], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8661, 1286], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([8981, 1338], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9030, 1381], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9037, 1314], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// limansk
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4662, 3586], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5150, 3678], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5412, 3413], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5279, 3245], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4699, 3216], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4603, 3130], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5380, 3047], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5435, 2894], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5098, 2554], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4883, 2462], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4737, 2423], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4606, 2315], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5054, 2269], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5355, 1976], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5090, 1854], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5100, 1729], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([5396, 1599], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+// backwater
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([11670, 2127], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([11518, 1559], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([11592, 1461], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([11423, 1329], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([9970, 629], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10587, 574], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+
+
+// rescue
+// the swamps
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([6707, 13689], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the cordon
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8596, 13238], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8949, 12281], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([9447, 12772], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the dump
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8485, 9175], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the dark valley
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10358, 9993], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10383, 10701], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10641, 9265], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10631, 9474], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10962, 9551], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([11001, 10737], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([11311, 9694], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([11475, 10786], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the pit
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5232, 7048], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5668, 6952], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5854, 7778], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5944, 7386], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([6187, 7529], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the forest
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([9424, 8105], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([9784, 7591], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10187, 7532], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([10690, 8318], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([11187, 7177], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the dead city
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4654, 5902], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4659, 6364], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4887, 6366], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5363, 5804], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5331, 6240], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// the graveyard
+// the path of fools
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4495, 4602], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4710, 4489], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5107, 4867], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5673, 4632], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([6848, 4612], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// army warehouses
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8329, 4484], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8289, 5348], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8776, 5079], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([8708, 5532], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([9239, 5392], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([9415, 5622], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([9942, 5621], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// limansk
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4388, 2940], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4506, 3312], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4767, 2159], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4669, 3006], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4857, 3609], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5027, 2599], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5248, 3852], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5503, 2267], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+
+
+// monolith
+// the red forest
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([5653, 992], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([6419, 664], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([7256, 966], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+// yanov outskirts
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([7881, 1627], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([8176, 1399], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([8306, 1647], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([8373, 731], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([9215, 658], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([9105, 1257], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([9257, 2083], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([9483, 1126], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([9425, 1245], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
+var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithMarker = L.marker(map.unproject([9425, 1872], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
 
 
 // anomalies
@@ -1876,6 +2326,9 @@ var shelterMarker = L.marker(map.unproject([11260, 1907], map.getMaxZoom()), {ic
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([11136, 1955], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
+// enter spawn limansk
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn from Limansk (verify)");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5791, 2562], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(exitSpawnLimanskMarkerPopup).addTo(enterspawn);
 
 // exit spawn limansk
 var exitSpawnLimanskMarkerPopup = L.popup().setContent("Exit spawn from Limansk (verify)");
