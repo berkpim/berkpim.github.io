@@ -1,9 +1,4 @@
-// variables
-var mapSW = [0, 16348];
-var mapNE = [16384, 0];
-
-
-// declare map object
+// declare map
 var map = L.map('map').setView([0, 0], 4);
 map.removeControl(map.zoomControl);
 map.attributionControl.setPrefix(false);
@@ -19,38 +14,45 @@ L.tileLayer('assets/images/tiles/overworld/{z}/{x}/{y}.png', {
 		crs: L.CRS.Simple,
 	}).addTo(map);
 
+
+// map limit
+var mapSW = [0, 16348];
+var mapNE = [16384, 0];	
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
 // layer groups
 // main
-var zone = L.layerGroup().addTo(map);
-var base = L.layerGroup().addTo(map);
-var conquestbase = L.layerGroup().addTo(map);
-var mapchange = L.layerGroup().addTo(map);
-var underground = L.layerGroup().addTo(map);
-var portal = L.layerGroup().addTo(map);
-var bubble = L.layerGroup().addTo(map);
+var zone = new L.layerGroup().addTo(map);
+var base = new L.layerGroup().addTo(map);
+var conquestbase = new L.layerGroup().addTo(map);
+var mapchange = new L.layerGroup().addTo(map);
+var underground = new L.layerGroup().addTo(map);
+var portal = new L.layerGroup().addTo(map);
+var bubble = new L.layerGroup().addTo(map);
 // events
-var rodent = L.layerGroup().addTo(map);
-var dog = L.layerGroup().addTo(map);
-var flesh = L.layerGroup().addTo(map);
-var boar = L.layerGroup().addTo(map);
-var snork = L.layerGroup().addTo(map);
-var bloodsucker = L.layerGroup().addTo(map);
-var zombie = L.layerGroup().addTo(map);
-var rescue = L.layerGroup().addTo(map);
-var military = L.layerGroup().addTo(map);
-var monolith = L.layerGroup().addTo(map);
-var pseudogiant = L.layerGroup().addTo(map);
-var chimera = L.layerGroup().addTo(map);
+var rodent = new L.layerGroup().addTo(map);
+var dog = new L.layerGroup().addTo(map);
+var flesh = new L.layerGroup().addTo(map);
+var boar = new L.layerGroup().addTo(map);
+var snork = new L.layerGroup().addTo(map);
+var bloodsucker = new L.layerGroup().addTo(map);
+var zombie = new L.layerGroup().addTo(map);
+var rescue = new L.layerGroup().addTo(map);
+var banditcamp = new L.layerGroup().addTo(map);
+var stalkercamp = new L.layerGroup().addTo(map);
+var military = new L.layerGroup().addTo(map);
+var monolith = new L.layerGroup().addTo(map);
+var pseudogiant = new L.layerGroup().addTo(map);
+var chimera = new L.layerGroup().addTo(map);
 //anomaly
-var anomaly = L.layerGroup().addTo(map);
+var anomaly = new L.layerGroup().addTo(map);
 // others
-var shelter = L.layerGroup();
-var enterspawn = L.layerGroup();
-var exitspawn = L.layerGroup();
-var test = L.layerGroup().addTo(map);
+var shelter = new L.layerGroup();
+var enterspawn = new L.layerGroup();
+var exitspawn = new L.layerGroup();
+var test = new L.layerGroup().addTo(map);
+
 
 
 var main = {
@@ -69,6 +71,8 @@ var main = {
 	"Bloodsuckers": bloodsucker,
 	"Zombies": zombie,
 	"Rescue": rescue,
+	"Bandit Camp": banditcamp,
+	"Stalker Camp": stalkercamp,
 	"Military": military,
 	"Monolith": monolith,
 	"Chimera": chimera,
@@ -1587,6 +1591,255 @@ var chimeraMarker = L.marker(map.unproject([7526, 1322], map.getMaxZoom()), {ico
 // backwater
 
 
+// bandit camp
+// the swamps
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([4954, 14257], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5240, 14174], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5819, 13915], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6248, 13727], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5450, 13029], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6104, 13224], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6794, 13095], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+// the cordon
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7521, 12465], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8040, 12587], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8233, 12304], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8947, 12304], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8459, 12029], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8102, 11939], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([9701, 11587], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([9572, 11435], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8003, 11042], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8559, 11032], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+// agroprom
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6126, 10748], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6347, 10235], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5143, 9628], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+// the dump
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8670, 10738], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8980, 10708], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7638, 10356], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8744, 10210], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8182, 9870], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7648, 9846], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7767, 9523], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8497, 9568], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8577, 9402], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7915, 9310], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8218, 9269], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8600, 9275], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8586, 9113], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8393, 9111], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7729, 9138], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7052, 8771], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+// the pit
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6481, 8258], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6206, 8023], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5775, 8098], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6302, 7469], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5492, 7107], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+// rostok factory
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([6807, 7499], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7028, 7501], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7080, 7080], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7305, 7161], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7241, 6915], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7424, 7219], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([7653, 7399], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+// army warehouses
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8022, 5634], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8671, 4959], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([8885, 4928], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([9055, 4934], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([9059, 5051], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([5190, 5170], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+var banditCampMarkerPopup = L.popup().setContent("Bandit Encampment");
+var banditCampMarker = L.marker(map.unproject([4559, 5164], map.getMaxZoom()), {icon:campIcon}).bindPopup(banditCampMarkerPopup).addTo(banditcamp);
+
+
+// stalker camp
+// the swamps
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([4459, 15092], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([4567, 15136], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([5348, 15022], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([5472, 15559], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([5858, 15495], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([5916, 15141], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([5636, 14932], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([5696, 14347], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([6071, 14578], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([6269, 14641], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([6934, 14661], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([6740, 14151], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([7294, 14178], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([7410, 14011], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// the cordon
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([7842, 13111], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8544, 13003], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8871, 13006], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8043, 12770], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8462, 12485], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9622, 12533], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8689, 11578], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8865, 11576], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8593, 11018], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// the dump
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8763, 10188], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8162, 9857], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9310, 9863], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9585, 9858], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8478, 9688], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8592, 9490], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([7866, 9351], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9569, 9429], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9435, 9250], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9340, 9241], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([9364, 9143], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8801, 9155], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8625, 8868], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// the dark valley
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10660, 11305], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10959, 11171], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10954, 10825], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([11023, 10669], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([11024, 10270], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10804, 9671], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10521, 9288], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10914, 9177], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// rostok factory
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([7923, 7396], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8660, 7495], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8862, 7432], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8580, 7075], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8472, 6891], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8394, 6686], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8058, 6708], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// the forest
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8840, 8198], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10447, 7379], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([10246, 7283], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// path of fools
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([6232, 4633], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([6408, 4519], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+// army warehouses
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8438, 5174], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([8130, 4895], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+var stalkerCampMarkerPopup = L.popup().setContent("Stalker Encampment");
+var stalkerCampMarker = L.marker(map.unproject([7766, 4564], map.getMaxZoom()), {icon:campIcon}).bindPopup(stalkerCampMarkerPopup).addTo(stalkercamp);
+
+
 // military
 // the swamps
 var militaryMarkerPopup = L.popup().setContent("Military checkpoint");
@@ -2015,6 +2268,64 @@ var monolithMarker = L.marker(map.unproject([9425, 1872], map.getMaxZoom()), {ic
 
 
 // anomalies
+// protocluster
+// rostok factory
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([8878, 6904], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([8542, 7124], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([8022, 7307], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([7886, 7350], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([7786, 7362], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([7636, 7282], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([7466, 6922], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([7010, 6806], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+// path of fools
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([4984, 4802], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([5036, 5036], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([4892, 5208], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([4219, 4577], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([4216, 5121], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([5656, 4688], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([5913, 4420], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([6278, 4934], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([6603, 4580], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([6865, 5272], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+// army warehouses
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([7272, 6147], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([9738, 5830], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([9806, 5392], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([8842, 5527], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([9081, 5104], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([9451, 5079], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([9783, 4409], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+var protoAnomalyMarkerPopup = L.popup().setContent("Proto-Electro Cluster");
+var protoAnomalyMarker = L.marker(map.unproject([8530, 4389], map.getMaxZoom()), {icon:protoAnomalyIcon}).bindPopup(protoAnomalyMarkerPopup).addTo(anomaly);
+
+
 // stasis
 var stasisMarkerPopup = L.popup().setContent("Stasis");
 var stasisMarker = L.marker(map.unproject([7138, 574], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
