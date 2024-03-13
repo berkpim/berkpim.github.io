@@ -1,7 +1,7 @@
 // declare map
 var map = L.map('map').setView([0, 0], 4);
 map.removeControl(map.zoomControl);
-map.attributionControl.setPrefix(false);
+//map.attributionControl.setPrefix(false);
 
 
 // reference the tiles
