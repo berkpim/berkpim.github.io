@@ -1,5 +1,5 @@
 // declare map
-var map = L.map('map').setView([0, 0], 3);
+var map = L.map('map').setView([0, 0], 2);
 map.removeControl(map.zoomControl);
 map.attributionControl.setPrefix(false);
 
@@ -7,7 +7,7 @@ map.attributionControl.setPrefix(false);
 // reference the tiles
 L.tileLayer('assets/images/tiles/graveyard/{z}/{x}/{y}.png', {
 		center: [0, 0],
-		minZoom: 3,
+		minZoom: 2,
 		maxZoom: 5,
 		continuousWorld: false,
 		noWrap: true,
@@ -16,8 +16,8 @@ L.tileLayer('assets/images/tiles/graveyard/{z}/{x}/{y}.png', {
 
 
 // map limit
-var mapSW = [0, 16348];
-var mapNE = [16384, 0];	
+var mapSW = [0, 8200];
+var mapNE = [8200, 0];	
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
@@ -143,11 +143,12 @@ var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSiz
 
 
 // test draggable marker
-var marker = L.marker(map.unproject([4264, 3372], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
+var marker = L.marker(map.unproject([4104, 3452], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
 
 marker.on('dragend', function(e) {
 	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
 });
+
 
 // add layer control
 L.control.layers(null, main, {collapsed:false}).addTo(map);

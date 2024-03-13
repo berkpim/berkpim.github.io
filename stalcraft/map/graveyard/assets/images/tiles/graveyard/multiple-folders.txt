@@ -1,4 +1,0 @@
-for /l %i in (X,1,Z) do md %i
-
-x = first folder
-z = last folder
