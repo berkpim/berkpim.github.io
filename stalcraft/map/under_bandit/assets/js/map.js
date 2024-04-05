@@ -135,9 +135,9 @@ var chimeraIcon = L.icon({iconUrl: 'assets/images/icons/chimera-icon.png', iconS
 
 // anomalies
 var protoAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/proto-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var researchAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/research-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var defendingResearchAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/defending-research-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var goldDefendingResearchAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/gold-defending-research-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var anomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var defendingAnomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/defending-anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var goldDefendingAnomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/gold-defending-anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var chronoriftIcon = L.icon({iconUrl: 'assets/images/icons/chronorift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
