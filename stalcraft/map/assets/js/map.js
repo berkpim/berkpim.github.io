@@ -2792,6 +2792,16 @@ var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([7307, 4571], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([7222, 3990], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+var shelterMarker = L.marker(map.unproject([4829, 4346], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+var shelterMarker = L.marker(map.unproject([4619, 4477], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+var shelterMarker = L.marker(map.unproject([4793, 4675], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+var shelterMarker = L.marker(map.unproject([4156, 4847], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Confirmed");
+
 // army warehouses
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([7898, 4443], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
