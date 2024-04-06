@@ -24,12 +24,7 @@ map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.
 // layer groups
 // main
 var zone = new L.layerGroup().addTo(map);
-var base = new L.layerGroup().addTo(map);
-var conquestbase = new L.layerGroup().addTo(map);
 var mapchange = new L.layerGroup().addTo(map);
-var underground = new L.layerGroup().addTo(map);
-var portal = new L.layerGroup().addTo(map);
-var bubble = new L.layerGroup().addTo(map);
 // events
 var rodent = new L.layerGroup().addTo(map);
 var dog = new L.layerGroup().addTo(map);
@@ -39,30 +34,17 @@ var snork = new L.layerGroup().addTo(map);
 var bloodsucker = new L.layerGroup().addTo(map);
 var zombie = new L.layerGroup().addTo(map);
 var rescue = new L.layerGroup().addTo(map);
-var banditcamp = new L.layerGroup().addTo(map);
-var stalkercamp = new L.layerGroup().addTo(map);
-var military = new L.layerGroup().addTo(map);
-var monolith = new L.layerGroup().addTo(map);
-var pseudogiant = new L.layerGroup().addTo(map);
-var chimera = new L.layerGroup().addTo(map);
 //anomaly
 var anomaly = new L.layerGroup().addTo(map);
 // others
 var shelter = new L.layerGroup();
-var enterspawn = new L.layerGroup();
-var exitspawn = new L.layerGroup();
 var test = new L.layerGroup().addTo(map);
 
 
 
 var main = {
 	"Zone Names" : zone,
-	"Bases" : base,
-	"Conquest Bases" : conquestbase,
 	"Map Change" : mapchange,
-	"Underground" : underground,
-	"Portals" : portal,
-	"Bubbles": bubble,
 	"Rodents" : rodent,
 	"Dogs" : dog,
 	"Fleshes": flesh,
@@ -71,19 +53,11 @@ var main = {
 	"Bloodsuckers": bloodsucker,
 	"Zombies": zombie,
 	"Rescue": rescue,
-	"Bandit Camp": banditcamp,
-	"Stalker Camp": stalkercamp,
-	"Military": military,
-	"Monolith": monolith,
-	"Chimera": chimera,
-	"Pseudogiant": pseudogiant,
 	"Anomalies" : anomaly
 }
 
 var secondary = {
-	"Shelters" : shelter,
-	"Enter Spawns": enterspawn,
-	"Exit Spawns": exitspawn
+	"Shelters" : shelter
 }
 
 var testing = {
@@ -99,46 +73,16 @@ var areaTooltip = {
 // main
 var testIcon = L.icon({iconUrl: 'assets/images/icons/test-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var blankIcon = L.icon({iconUrl: 'assets/images/icons/blank-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var baseIcon = L.icon({iconUrl: 'assets/images/icons/base-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var conquestBaseIcon = L.icon({iconUrl: 'assets/images/icons/conquest-base-icon.png', iconSize: [36, 36], iconAnchor: [18, 18]});
 var mapChangeIcon = L.icon({iconUrl: 'assets/images/icons/map-change-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var oneWayIcon = L.icon({iconUrl: 'assets/images/icons/one-way-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var undergroundIcon = L.icon({iconUrl: 'assets/images/icons/underground-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var mapPortalIcon = L.icon({iconUrl: 'assets/images/icons/map-portal-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var dangerousLocationIcon = L.icon({iconUrl: 'assets/images/icons/dangerous-location-icon.png', iconSize: [18, 18], iconAnchor: [9, 9]});
-var wildLocationIcon = L.icon({iconUrl: 'assets/images/icons/wild-location-icon.png', iconSize: [18, 18], iconAnchor: [9, 9]});
 var shelterIcon = L.icon({iconUrl: 'assets/images/icons/shelter-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var enterSpawnIcon = L.icon({iconUrl: 'assets/images/icons/enter-spawn-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var exitSpawnIcon = L.icon({iconUrl: 'assets/images/icons/exit-spawn-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var bubbleIcon = L.icon({iconUrl: 'assets/images/icons/bubble-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-
 // events
 var zombieIcon = L.icon({iconUrl: 'assets/images/icons/zombie-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var mutantIcon = L.icon({iconUrl: 'assets/images/icons/mutant-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var rescueIcon = L.icon({iconUrl: 'assets/images/icons/rescue-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var campIcon = L.icon({iconUrl: 'assets/images/icons/camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var militaryIcon = L.icon({iconUrl: 'assets/images/icons/military-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var goldMilitaryIcon = L.icon({iconUrl: 'assets/images/icons/gold-military-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var monolithCampIcon = L.icon({iconUrl: 'assets/images/icons/monolith-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var mercenaryCampIcon = L.icon({iconUrl: 'assets/images/icons/mercenary-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var covenantCampIcon = L.icon({iconUrl: 'assets/images/icons/covenant-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var dutyCampIcon = L.icon({iconUrl: 'assets/images/icons/duty-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var freedomCampIcon = L.icon({iconUrl: 'assets/images/icons/freedom-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var miniBossIcon = L.icon({iconUrl: 'assets/images/icons/miniboss-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var redAirdropIcon = L.icon({iconUrl: 'assets/images/icons/red-airdrop-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var blueAirdropIcon = L.icon({iconUrl: 'assets/images/icons/blue-airdrop-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var goldAirdropIcon = L.icon({iconUrl: 'assets/images/icons/gold-airdrop-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var occupiedBuildingIcon = L.icon({iconUrl: 'assets/images/icons/occupied-building-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var monolithAntennaIcon = L.icon({iconUrl: 'assets/images/icons/monolith-antenna-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var monolithOutpostIcon = L.icon({iconUrl: 'assets/images/icons/monolith-outpost-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var chimeraIcon = L.icon({iconUrl: 'assets/images/icons/chimera-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-
 // anomalies
 var protoAnomalyIcon = L.icon({iconUrl: 'assets/images/icons/proto-anomaly-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var anomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var defendingAnomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/defending-anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var goldDefendingAnomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/gold-defending-anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var chronoriftIcon = L.icon({iconUrl: 'assets/images/icons/chronorift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
 
@@ -148,6 +92,79 @@ var marker = L.marker(map.unproject([4104, 3452], map.getMaxZoom()), {draggable:
 marker.on('dragend', function(e) {
 	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
 });
+
+
+// events
+// rodents
+var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
+var rodentMarker = L.marker(map.unproject([3282, 4290], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
+var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
+var rodentMarker = L.marker(map.unproject([3202, 3384], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
+var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
+var rodentMarker = L.marker(map.unproject([5062, 3242], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
+var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
+var rodentMarker = L.marker(map.unproject([5116, 2334], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
+// dogs
+var dogMarkerPopup = L.popup().setContent("Dog Den");
+var dogMarker = L.marker(map.unproject([4498, 3196], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
+var dogMarkerPopup = L.popup().setContent("Dog Den");
+var dogMarker = L.marker(map.unproject([3178, 3750], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
+// fleshes
+var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
+var fleshMarker = L.marker(map.unproject([3690, 3482], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
+// boars
+var boarMarkerPopup = L.popup().setContent("Boar Hideout");
+var boarMarker = L.marker(map.unproject([4628, 2612], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
+var boarMarkerPopup = L.popup().setContent("Boar Hideout");
+var boarMarker = L.marker(map.unproject([3912, 4156], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
+// snorks
+var snorkMarkerPopup = L.popup().setContent("Snork Den");
+var snorkMarker = L.marker(map.unproject([3246, 3708], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
+var snorkMarkerPopup = L.popup().setContent("Snork Den");
+var snorkMarker = L.marker(map.unproject([3640, 2544], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
+var snorkMarkerPopup = L.popup().setContent("Snork Den");
+var snorkMarker = L.marker(map.unproject([4228, 2612], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
+// bloodsuckers
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([5100, 3792], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([4852, 3888], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([4436, 3650], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([4356, 2804], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([3478, 3326], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+// rescue
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([3490, 3784], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4564, 3708], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4642, 2972], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([3550, 2886], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([4452, 2378], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+// zombies
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([3462, 4098], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([3796, 4012], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([3574, 3626], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4806, 3622], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4004, 3362], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([3544, 3098], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4356, 3054], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4892, 3122], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([4200, 2444], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 
 
 // add layer control
