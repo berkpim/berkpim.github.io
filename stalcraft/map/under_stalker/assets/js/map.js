@@ -178,6 +178,12 @@ var mapChangeMarkerPopup = L.popup().setContent("One way");
 var mapChangeMarker = L.marker(map.unproject([6494, 3482], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayUndergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
 var mapChangeMarker = L.marker(map.unproject([6662, 4528], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayUndergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([7048, 5940], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayUndergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([6714, 5996], map.getMaxZoom()), {icon:oneWayUndergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([6454, 5826], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayUndergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 
 
 // mapchange
@@ -215,6 +221,18 @@ var mapChangeMarkerPopup = L.popup().setContent("One way");
 var mapChangeMarker = L.marker(map.unproject([6152, 1996], map.getMaxZoom()), {rotationAngle: 90, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
 var mapChangeMarker = L.marker(map.unproject([6428, 4636], map.getMaxZoom()), {rotationAngle: 90, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([5586, 7326], map.getMaxZoom()), {icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([2886, 6411], map.getMaxZoom()), {rotationAngle: 180, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([2996, 6308], map.getMaxZoom()), {rotationAngle: 180, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([2812, 5994], map.getMaxZoom()), {rotationAngle: 180, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+var mapChangeMarker = L.marker(map.unproject([3107, 5805], map.getMaxZoom()), {rotationAngle: 180, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("One way");
+
 
 // events
 // bloodsucker
