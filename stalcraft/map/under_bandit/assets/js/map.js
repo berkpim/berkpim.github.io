@@ -154,27 +154,27 @@ marker.on('dragend', function(e) {
 
 // one way
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([1202, 4541], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([1328, 3872], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([2236, 4360], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([2344, 3948], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([2306, 3772], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([3760, 5634], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([3808, 4377], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: 180, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([4492, 2955], map.getMaxZoom()), {rotationAngle: 180, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: -90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([5418, 5201], map.getMaxZoom()), {rotationAngle: -90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([5899, 2802], map.getMaxZoom()), {icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("One way");
-var mapChangeMarker = L.marker(map.unproject([], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarker = L.marker(map.unproject([6374, 3568], map.getMaxZoom()), {rotationAngle: 90, icon:oneWayIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 
 // mapchange
 var mapChangeMarkerPopup = L.popup().setContent("One way");
