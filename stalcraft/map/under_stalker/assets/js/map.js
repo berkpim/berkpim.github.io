@@ -165,7 +165,6 @@ var mapChangeMarkerPopup = L.popup().setContent("to Army Warehouses");
 var mapChangeMarker = L.marker(map.unproject([2812, 5994], map.getMaxZoom()), {rotationAngle: 180, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
 var mapChangeMarkerPopup = L.popup().setContent("to Army Warehouses");
 var mapChangeMarker = L.marker(map.unproject([3107, 5805], map.getMaxZoom()), {rotationAngle: 180, icon:undergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
-var mapChangeMarkerPopup = L.popup().setContent("to Army Warehouses");
 
 
 // events

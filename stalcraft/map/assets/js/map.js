@@ -188,7 +188,7 @@ var mercenaryCampMarkerPopup = L.popup().setContent("Mercenary Camp");
 var mercenaryCampMarker = L.marker(map.unproject([5670, 5052], map.getMaxZoom()), {icon:baseIcon}).bindPopup(mercenaryCampMarkerPopup).addTo(base);
 var dutyBaseMarkerPopup = L.popup().setContent("Duty Base");
 var dutyBaseMarker = L.marker(map.unproject([9112, 6194], map.getMaxZoom()), {icon:baseIcon}).bindPopup(dutyBaseMarkerPopup).addTo(base);
-//conquest
+// conquest
 var pumpingStationMarkerPopup = L.popup().setContent("Pumping Station (Lvl. I)");
 var pumpingStationMarker = L.marker(map.unproject([6054, 1257], map.getMaxZoom()), {icon:conquestBaseIcon}).bindPopup(pumpingStationMarkerPopup).addTo(conquestbase);
 var pumpingStationMarkerPopup = L.popup().setContent("Duga Station (Lvl. II)");
@@ -1035,7 +1035,6 @@ var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
 var fleshMarker = L.marker(map.unproject([4871, 5702], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
 var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
 var fleshMarker = L.marker(map.unproject([5204, 6100], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
-// the graveyard
 // the path of fools
 var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
 var fleshMarker = L.marker(map.unproject([4160, 5232], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
@@ -1261,8 +1260,6 @@ var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([5247, 6110], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([4644, 6215], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
-// the graveyard
-
 // the path of fools
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([4260, 4722], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
@@ -1391,8 +1388,6 @@ var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([4997, 5915], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
 var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([4946, 5676], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
-// the graveyard
-// the path of fools
 // army warehouses
 var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([8196, 4013], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
@@ -1461,8 +1456,6 @@ var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den*");
 var bloodsuckerMarker = L.marker(map.unproject([5417, 5754], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den*");
 var bloodsuckerMarker = L.marker(map.unproject([5448, 6042], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-// the graveyard
-
 // the path of fools
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den*");
 var bloodsuckerMarker = L.marker(map.unproject([6449, 4660], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
@@ -1989,7 +1982,6 @@ var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([5450, 5851], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([5284, 5647], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-// the graveyard
 // the path of fools
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([4165, 4997], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
@@ -2190,7 +2182,6 @@ var rescueMarkerPopup = L.popup().setContent("Help Allies");
 var rescueMarker = L.marker(map.unproject([5363, 5804], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
 var rescueMarkerPopup = L.popup().setContent("Help Allies");
 var rescueMarker = L.marker(map.unproject([5331, 6240], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
-// the graveyard
 // the path of fools
 var rescueMarkerPopup = L.popup().setContent("Help Allies");
 var rescueMarker = L.marker(map.unproject([4495, 4602], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
@@ -2965,9 +2956,6 @@ var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([11596, 7433], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([11471, 7326], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-// the graveyard
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([10787, 6348], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 // dead city
 var shelterMarkerPopup = L.popup().setContent("Confirmed");
 var shelterMarker = L.marker(map.unproject([5025, 5746], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);

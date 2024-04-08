@@ -94,6 +94,25 @@ marker.on('dragend', function(e) {
 });
 
 
+// map change
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([4904, 4567], map.getMaxZoom()), {icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([5017, 4520], map.getMaxZoom()), {icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([5176, 4459], map.getMaxZoom()), {icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([3111, 3271], map.getMaxZoom()), {rotationAngle: 90, icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([3111, 3194], map.getMaxZoom()), {rotationAngle: 90, icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([3176, 2924], map.getMaxZoom()), {rotationAngle: 90, icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([3176, 2859], map.getMaxZoom()), {rotationAngle: 90, icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+var mapChangeMarkerPopup = L.popup().setContent("to the Path of Fools");
+var mapChangeMarker = L.marker(map.unproject([3176, 2709], map.getMaxZoom()), {rotationAngle: 90, icon:mapChangeIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
+
+
 // events
 // rodents
 var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
@@ -165,6 +184,22 @@ var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([4892, 3122], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([4200, 2444], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+
+
+// anomalies
+// anomalous rift
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4566, 3984], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([5118, 3030], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([3291, 3389], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4228, 2908], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([3890, 4291], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([3313, 2650], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 
 
 // add layer control
