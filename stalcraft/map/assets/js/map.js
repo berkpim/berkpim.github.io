@@ -2258,6 +2258,34 @@ var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
 var monolithMarker = L.marker(map.unproject([9425, 1872], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
 
 
+// airdrop
+// red airdrop 
+// the red forest
+var airdropMarkerPopup = L.popup().setContent("red airdrop");
+var airdropMarker = L.marker(map.unproject([6777, 2851], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("red airdrop");
+var airdropMarker = L.marker(map.unproject([6473, 1236], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("red airdrop");
+var airdropMarker = L.marker(map.unproject([6861, 1198], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("red airdrop");
+var airdropMarker = L.marker(map.unproject([7100, 937], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("red airdrop");
+var airdropMarker = L.marker(map.unproject([5719, 858], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("red airdrop");
+var airdropMarker = L.marker(map.unproject([6838, 663], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+
+// blue airdrop
+// the red forest
+var airdropMarkerPopup = L.popup().setContent("blue airdrop");
+var airdropMarker = L.marker(map.unproject([6904, 825], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+var airdropMarkerPopup = L.popup().setContent("blue airdrop");
+var airdropMarker = L.marker(map.unproject([7039, 1112], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+var airdropMarkerPopup = L.popup().setContent("blue airdrop");
+var airdropMarker = L.marker(map.unproject([6069, 912], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+var airdropMarkerPopup = L.popup().setContent("blue airdrop");
+var airdropMarker = L.marker(map.unproject([5716, 1140], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+
+
 // anomalies
 // protocluster
 // rostok factory
@@ -2704,6 +2732,14 @@ var stasisMarker = L.marker(map.unproject([9182, 1020], map.getMaxZoom()), {icon
 stasisMarkerPopup = L.popup().setContent("Stasis");
 var stasisMarker = L.marker(map.unproject([9391, 846], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
 
+stasisMarkerPopup = L.popup().setContent("Stasis");
+var stasisMarker = L.marker(map.unproject([6958, 4663], map.getMaxZoom()), {icon:goldAirdropIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
+stasisMarkerPopup = L.popup().setContent("Stasis");
+var stasisMarker = L.marker(map.unproject([6123, 4390], map.getMaxZoom()), {icon:goldAirdropIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
+stasisMarkerPopup = L.popup().setContent("Stasis");
+var stasisMarker = L.marker(map.unproject([7468, 1011], map.getMaxZoom()), {icon:goldAirdropIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
+stasisMarkerPopup = L.popup().setContent("Stasis");
+var stasisMarker = L.marker(map.unproject([5711, 7972], map.getMaxZoom()), {icon:goldAirdropIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
 
 // shelters
 // the swamps
