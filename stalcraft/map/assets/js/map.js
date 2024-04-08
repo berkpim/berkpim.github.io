@@ -1554,22 +1554,9 @@ var bloodsuckerMarker = L.marker(map.unproject([5166, 3954], map.getMaxZoom()), 
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([4398, 3126], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 // backwater
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den+");
 var bloodsuckerMarker = L.marker(map.unproject([10090, 1150], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([10006, 1724], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([10411, 1790], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([11242, 1846], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([10816, 1332], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([10421, 1704], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([9998, 1704], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([11219, 1831], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+
 
 
 // pseudogiants
@@ -2110,18 +2097,9 @@ var zombieMarker = L.marker(map.unproject([5100, 1729], map.getMaxZoom()), {icon
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([5396, 1599], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 // backwater
-var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment+");
 var zombieMarker = L.marker(map.unproject([11670, 2127], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
-var zombieMarker = L.marker(map.unproject([11518, 1559], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
-var zombieMarker = L.marker(map.unproject([11592, 1461], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
-var zombieMarker = L.marker(map.unproject([11423, 1329], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
-var zombieMarker = L.marker(map.unproject([9970, 629], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
-var zombieMarker = L.marker(map.unproject([10587, 574], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+
 
 
 // rescue
@@ -3261,32 +3239,8 @@ var shelterMarker = L.marker(map.unproject([9484, 1184], map.getMaxZoom()), {ico
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([9652, 1540], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 // backwater
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarkerPopup = L.popup().setContent("Still need to verify+");
 var shelterMarker = L.marker(map.unproject([10050, 1120], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([9984, 437], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([10563, 431], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([10643, 1008], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11696, 425], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11556, 658], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11499, 1380], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11717, 1396], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11717, 1356], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([10282, 1531], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([10218, 2010], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11260, 1907], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
-var shelterMarker = L.marker(map.unproject([11136, 1955], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
 // enter spawn limansk
 var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn from Limansk (verify)");
