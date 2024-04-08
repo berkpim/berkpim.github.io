@@ -85,6 +85,11 @@ marker.on('dragend', function(e) {
 });
 
 
+// base
+var freedomBaseMarkerPopup = L.popup().setContent("Freedom Base");
+var freedomBaseMarker = L.marker(map.unproject([4594, 7506], map.getMaxZoom()), {icon:baseIcon}).bindPopup(freedomBaseMarkerPopup).addTo(base);
+
+
 // one way
 var mapChangeMarkerPopup = L.popup().setContent("One way");
 var mapChangeMarker = L.marker(map.unproject([858, 3440], map.getMaxZoom()), {icon:oneWayUndergroundIcon}).bindPopup(mapChangeMarkerPopup).addTo(mapchange);
