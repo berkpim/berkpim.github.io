@@ -182,7 +182,7 @@ var	radar = L.marker(map.unproject([11434, 4396], map.getMaxZoom()), {icon:blank
 var	limansk = L.marker(map.unproject([5124, 2688], map.getMaxZoom()), {icon:dangerousLocationIcon}).bindTooltip('Limansk', {direction: 'center', permanent: true, offset: [65, 0], ...areaTooltip}, areaTooltip).addTo(zone);
 var	theRedForest = L.marker(map.unproject([6528, 2391], map.getMaxZoom()), {icon:dangerousLocationIcon}).bindTooltip('The Red Forest', {direction: 'center', permanent: true, offset: [105, 0], ...areaTooltip}, areaTooltip).addTo(zone);
 var	yanovOutskirts = L.marker(map.unproject([8618, 2298], map.getMaxZoom()), {icon:dangerousLocationIcon}).bindTooltip('Yanov Outskirts', {direction: 'center', permanent: true, offset: [105, 0], ...areaTooltip}, areaTooltip).addTo(zone);
-var	backWater = L.marker(map.unproject([11084, 1226], map.getMaxZoom()), {icon:wildLocationIcon}).bindTooltip('Back Water', {direction: 'center', permanent: true, offset: [80, 0], ...areaTooltip}, areaTooltip).addTo(zone);
+var	backWater = L.marker(map.unproject([11084, 1226], map.getMaxZoom()), {icon:wildLocationIcon}).bindTooltip('Backwater', {direction: 'center', permanent: true, offset: [80, 0], ...areaTooltip}, areaTooltip).addTo(zone);
 
 
 // bases
@@ -601,11 +601,9 @@ var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
 var rodentMarker = L.marker(map.unproject([8776, 2246], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
 var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
 var rodentMarker = L.marker(map.unproject([9250, 2534], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
-// back water
-var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
+// backwater
+var rodentMarkerPopup = L.popup().setContent("Rodent Nest+");
 var rodentMarker = L.marker(map.unproject([9860, 1829], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
-var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
-var rodentMarker = L.marker(map.unproject([11165, 1776], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
 
 
 // dogs
@@ -887,17 +885,9 @@ var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([9697, 1540], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([9670, 1687], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
-// back water
-var dogMarkerPopup = L.popup().setContent("Dog Den");
+// backwater
+var dogMarkerPopup = L.popup().setContent("Dog Den+");
 var dogMarker = L.marker(map.unproject([10103, 805], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
-var dogMarkerPopup = L.popup().setContent("Dog Den");
-var dogMarker = L.marker(map.unproject([10439, 1169], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
-var dogMarkerPopup = L.popup().setContent("Dog Den");
-var dogMarker = L.marker(map.unproject([11022, 722], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
-var dogMarkerPopup = L.popup().setContent("Dog Den");
-var dogMarker = L.marker(map.unproject([10824, 844], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
-var dogMarkerPopup = L.popup().setContent("Dog Den");
-var dogMarker = L.marker(map.unproject([11455, 1618], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 
 
 // fleshes
