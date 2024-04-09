@@ -84,8 +84,8 @@ var main = {
 	"Occupied Building": occupiedbuilding,
 	"Monolith Antenna": monolithantenna,
 	"Monolith Outpost": monolithoutpost,
-	"Chimera": chimera,
 	"Pseudogiant": pseudogiant,
+	"Chimera": chimera,
 	"Red Airdrop": redairdrop,
 	"Blue Airdrop": blueairdrop,
 	"Gold Airdrop": goldairdrop,
@@ -143,6 +143,7 @@ var goldAirdropIcon = L.icon({iconUrl: 'assets/images/icons/gold-airdrop-event.p
 var occupiedBuildingIcon = L.icon({iconUrl: 'assets/images/icons/occupied-building-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var monolithAntennaIcon = L.icon({iconUrl: 'assets/images/icons/monolith-antenna-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var monolithOutpostIcon = L.icon({iconUrl: 'assets/images/icons/monolith-outpost-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var pseudogiantIcon = L.icon({iconUrl: 'assets/images/icons/pseudogiant-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var chimeraIcon = L.icon({iconUrl: 'assets/images/icons/chimera-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
 // anomalies
@@ -1574,6 +1575,8 @@ var bloodsuckerMarker = L.marker(map.unproject([10090, 1150], map.getMaxZoom()),
 // the path of fools
 // army warehouses
 // the red forest
+var pseudogiantMarkerPopup = L.popup().setContent("Pseudogiant Spawn");
+var pseudogiantMarker = L.marker(map.unproject([5802, 913], map.getMaxZoom()), {icon:pseudogiantIcon}).bindPopup(pseudogiantMarkerPopup).addTo(pseudogiant);
 // yanov outskirts
 // limansk
 // backwater
