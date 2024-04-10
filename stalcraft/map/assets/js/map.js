@@ -51,6 +51,7 @@ var chimera = new L.layerGroup().addTo(map);
 var redairdrop = new L.layerGroup().addTo(map);
 var blueairdrop = new L.layerGroup().addTo(map);
 var goldairdrop = new L.layerGroup().addTo(map);
+var miniboss = new L.layerGroup().addTo(map);
 //anomaly
 var anomaly = new L.layerGroup().addTo(map);
 // others
@@ -89,6 +90,7 @@ var main = {
 	"Red Airdrop": redairdrop,
 	"Blue Airdrop": blueairdrop,
 	"Gold Airdrop": goldairdrop,
+	"Bosses": miniboss,
 	"Anomalies" : anomaly
 }
 
@@ -435,6 +437,8 @@ var mapPortalMarkerPopup = L.popup().setContent("to Limansk");
 var mapPortalMarker = L.marker(map.unproject([9883, 3998], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
 var mapPortalMarkerPopup = L.popup().setContent("to Limansk");
 var mapPortalMarker = L.marker(map.unproject([10016, 5019], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("to Limansk");
+var mapPortalMarker = L.marker(map.unproject([7386, 2647], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
 // backwater enter
 var mapPortalMarkerPopup = L.popup().setContent("to Backwater");
 var mapPortalMarker = L.marker(map.unproject([5516, 605], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
@@ -472,14 +476,42 @@ var mapPortalMarker = L.marker(map.unproject([10916, 1339], map.getMaxZoom()), {
 
 
 // bubbles
-var bubbleMarkerPopup = L.popup().setContent("Bubble");
-var bubbleMarker = L.marker(map.unproject([6087, 1919], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+// the red forest
 var bubbleMarkerPopup = L.popup().setContent("Bubble");
 var bubbleMarker = L.marker(map.unproject([6301, 2533], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
 var bubbleMarkerPopup = L.popup().setContent("Bubble");
 var bubbleMarker = L.marker(map.unproject([6522, 1805], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
 var bubbleMarkerPopup = L.popup().setContent("Bubble");
 var bubbleMarker = L.marker(map.unproject([6088, 1932], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+// limansk
+var bubbleMarkerPopup = L.popup().setContent("Bubble ∞");
+var bubbleMarker = L.marker(map.unproject([5088, 1872], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble ∞");
+var bubbleMarker = L.marker(map.unproject([5379, 3451], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([4817, 3840], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([5467, 3121], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([4489, 3161], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([4378, 2787], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([5576, 2824], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([4812, 2366], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([5092, 2051], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([5230, 1922], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([5479, 1963], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([5485, 1420], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble - Rat");
+var bubbleMarker = L.marker(map.unproject([4921, 3048], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble - Chimera");
+var bubbleMarker = L.marker(map.unproject([5192, 1747], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
 
 
 // events
@@ -862,6 +894,8 @@ var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([4558, 2261], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([5623, 2488], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
+var dogMarkerPopup = L.popup().setContent("Dog Den");
+var dogMarker = L.marker(map.unproject([5097, 3164], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 // the red forest
 var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([7265, 2818], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
@@ -1376,8 +1410,6 @@ var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([8386, 1156], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 // limansk
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
-var boarMarker = L.marker(map.unproject([5015, 3182], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
-var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([4842, 3101], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([5024, 2892], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
@@ -1385,6 +1417,8 @@ var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([5360, 2908], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([5606, 2644], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
+var boarMarkerPopup = L.popup().setContent("Boar Hideout");
+var boarMarker = L.marker(map.unproject([5100, 3148], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 // backwater
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([11552, 2362], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
@@ -1590,6 +1624,8 @@ var pseudogiantMarker = L.marker(map.unproject([5802, 913], map.getMaxZoom()), {
 // the red forest
 var chimeraMarkerPopup = L.popup().setContent("Chimera Spawn");
 var chimeraMarker = L.marker(map.unproject([7526, 1322], map.getMaxZoom()), {icon:chimeraIcon}).bindPopup(chimeraMarkerPopup).addTo(chimera);
+var chimeraMarkerPopup = L.popup().setContent("Chimera Spawn");
+var chimeraMarker = L.marker(map.unproject([5988, 694], map.getMaxZoom()), {icon:chimeraIcon}).bindPopup(chimeraMarkerPopup).addTo(chimera);
 // yanov outskirts
 // limansk
 // backwater
@@ -2227,6 +2263,8 @@ var rescueMarkerPopup = L.popup().setContent("Help Allies");
 var rescueMarker = L.marker(map.unproject([5248, 3852], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
 var rescueMarkerPopup = L.popup().setContent("Help Allies");
 var rescueMarker = L.marker(map.unproject([5503, 2267], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
+var rescueMarkerPopup = L.popup().setContent("Help Allies");
+var rescueMarker = L.marker(map.unproject([5020, 2748], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
 
 
 // monolith
@@ -2259,11 +2297,13 @@ var monolithMarker = L.marker(map.unproject([9425, 1245], map.getMaxZoom()), {ic
 var monolithMarkerPopup = L.popup().setContent("Monolith Squad");
 var monolithMarker = L.marker(map.unproject([9425, 1872], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithMarkerPopup).addTo(monolith);
 
+
 // occupied buildings
 // limansk
 // backwater
 var occupiedBuildingMarkerPopup = L.popup().setContent("Occupied Building");
 var occupiedBuildingMarker = L.marker(map.unproject([10221, 1843], map.getMaxZoom()), {icon:occupiedBuildingIcon}).bindPopup(occupiedBuildingMarkerPopup).addTo(occupiedbuilding);
+
 
 // monolith outposts
 // backwater
@@ -2315,6 +2355,18 @@ var airdropMarker = L.marker(map.unproject([10464, 1039], map.getMaxZoom()), {ic
 // backwater
 var airdropMarkerPopup = L.popup().setContent("Gold Airdrop");
 var airdropMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:goldAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(goldairdrop);
+
+
+// limansk bosses
+// chimera
+var chimeraBossMarkerPopup = L.popup().setContent("Chimera Boss");
+var chimeraBossMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(chimeraBossMarkerPopup).addTo(miniboss);
+// bloodsucker
+var bloodsuckerBossMarkerPopup = L.popup().setContent("Bloodsucker Boss");
+var bloodsuckerBossMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(bloodsuckerBossMarkerPopup).addTo(miniboss);
+// rat
+var ratBossMarkerPopup = L.popup().setContent("Rat Boss");
+var ratBossMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(ratBossMarkerPopup).addTo(miniboss);
 
 
 // anomalies
@@ -2540,6 +2592,20 @@ var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([5492, 1333], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([5525, 1375], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4451, 3198], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4451, 3198], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([5607, 2850], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([5501, 3243], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4572, 2528], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4292, 2662], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4679, 3608], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 // the red forest
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([6457, 3607], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
@@ -3306,13 +3372,33 @@ var shelterMarker = L.marker(map.unproject([9652, 1540], map.getMaxZoom()), {ico
 var shelterMarkerPopup = L.popup().setContent("Still need to verify+");
 var shelterMarker = L.marker(map.unproject([10050, 1120], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
+// limansk spawns
 // enter spawn limansk
-var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn from Limansk (verify)");
-var enterSpawnLimanskMarker = L.marker(map.unproject([5791, 2562], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(exitSpawnLimanskMarkerPopup).addTo(enterspawn);
-
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([4601, 4152], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5160, 4110], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5530, 4016], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5614, 3415], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5830, 3038], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5789, 2849], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5790, 2626], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5825, 2524], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5465, 1298], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
+var enterSpawnLimanskMarker = L.marker(map.unproject([5209, 1293], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
 // exit spawn limansk
 var exitSpawnLimanskMarkerPopup = L.popup().setContent("Exit spawn from Limansk (verify)");
 var exitSpawnLimanskMarker = L.marker(map.unproject([6866, 5440], map.getMaxZoom()), {icon:exitSpawnIcon}).bindPopup(exitSpawnLimanskMarkerPopup).addTo(exitspawn);
+var exitSpawnLimanskMarkerPopup = L.popup().setContent("Exit spawn from Limansk");
+var exitSpawnLimanskMarker = L.marker(map.unproject([6042, 5294], map.getMaxZoom()), {icon:exitSpawnIcon}).bindPopup(exitSpawnLimanskMarkerPopup).addTo(exitspawn);
 
 
 // add layer control
