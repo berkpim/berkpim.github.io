@@ -29,7 +29,7 @@ var conquestbase = new L.layerGroup().addTo(map);
 var mapchange = new L.layerGroup().addTo(map);
 var underground = new L.layerGroup().addTo(map);
 var portal = new L.layerGroup().addTo(map);
-var bubble = new L.layerGroup().addTo(map);
+var bubble = new L.layerGroup();
 // events
 var rodent = new L.layerGroup().addTo(map);
 var dog = new L.layerGroup().addTo(map);
@@ -2334,6 +2334,11 @@ var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([5719, 858], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([6838, 663], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+// limansk
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([5350, 3044], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([5468, 2645], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 
 
 // blue airdrop
@@ -2360,13 +2365,13 @@ var airdropMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {ico
 // limansk bosses
 // chimera
 var chimeraBossMarkerPopup = L.popup().setContent("Chimera Boss");
-var chimeraBossMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(chimeraBossMarkerPopup).addTo(miniboss);
+var chimeraBossMarker = L.marker(map.unproject([5196, 1744], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(chimeraBossMarkerPopup).addTo(miniboss);
 // bloodsucker
 var bloodsuckerBossMarkerPopup = L.popup().setContent("Bloodsucker Boss");
-var bloodsuckerBossMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(bloodsuckerBossMarkerPopup).addTo(miniboss);
+var bloodsuckerBossMarker = L.marker(map.unproject([5110, 2388], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(bloodsuckerBossMarkerPopup).addTo(miniboss);
 // rat
 var ratBossMarkerPopup = L.popup().setContent("Rat Boss");
-var ratBossMarker = L.marker(map.unproject([11437, 530], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(ratBossMarkerPopup).addTo(miniboss);
+var ratBossMarker = L.marker(map.unproject([4965, 2916], map.getMaxZoom()), {icon:miniBossIcon}).bindPopup(ratBossMarkerPopup).addTo(miniboss);
 
 
 // anomalies
@@ -2672,6 +2677,16 @@ var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([8596, 972], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([8514, 580], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+
+
+// gold anomaly rift
+var goldDefendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
+var goldDefendingAnomalyRiftMarker = L.marker(map.unproject([5224, 3067], map.getMaxZoom()), {icon:goldDefendingAnomalyRiftIcon}).bindPopup(goldDefendingAnomalyRiftMarkerPopup).addTo(anomaly);
+var goldDefendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
+var goldDefendingAnomalyRiftMarker = L.marker(map.unproject([5191, 2842], map.getMaxZoom()), {icon:goldDefendingAnomalyRiftIcon}).bindPopup(goldDefendingAnomalyRiftMarkerPopup).addTo(anomaly);
+var goldDefendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
+var goldDefendingAnomalyRiftMarker = L.marker(map.unproject([5218, 2423], map.getMaxZoom()), {icon:goldDefendingAnomalyRiftIcon}).bindPopup(goldDefendingAnomalyRiftMarkerPopup).addTo(anomaly);
+
 
 
 // chronorifts
