@@ -29,6 +29,7 @@ var mapchange = new L.layerGroup().addTo(map);
 // events
 var bloodsucker = new L.layerGroup().addTo(map);
 var covenant = new L.layerGroup().addTo(map);
+var mercenary = new L.layerGroup().addTo(map);
 //anomaly
 var anomaly = new L.layerGroup().addTo(map);
 // others
@@ -43,6 +44,7 @@ var main = {
 	"Map Change" : mapchange,
 	"Bloodsuckers": bloodsucker,
 	"Covenant": covenant,
+	"Mercenary": mercenary,
 	"Anomalies" : anomaly
 }
 
@@ -67,14 +69,10 @@ var baseIcon = L.icon({iconUrl: 'assets/images/icons/base-icon.png', iconSize: [
 var oneWayUndergroundIcon = L.icon({iconUrl: 'assets/images/icons/one-way-underground-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var undergroundIcon = L.icon({iconUrl: 'assets/images/icons/underground-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var shelterIcon = L.icon({iconUrl: 'assets/images/icons/shelter-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-
 // events
 var mutantIcon = L.icon({iconUrl: 'assets/images/icons/mutant-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var mercenaryCampIcon = L.icon({iconUrl: 'assets/images/icons/mercenary-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var covenantCampIcon = L.icon({iconUrl: 'assets/images/icons/covenant-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var dutyCampIcon = L.icon({iconUrl: 'assets/images/icons/duty-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-var freedomCampIcon = L.icon({iconUrl: 'assets/images/icons/freedom-camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
-
 // anomalies
 var anomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 
@@ -162,8 +160,6 @@ var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([4042, 3307], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([4774, 3776], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
-var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
-var bloodsuckerMarker = L.marker(map.unproject([5965, 4984], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([5794, 3239], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
