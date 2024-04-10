@@ -28,6 +28,7 @@ var base = new L.layerGroup().addTo(map);
 var mapchange = new L.layerGroup().addTo(map);
 // events
 var bloodsucker = new L.layerGroup().addTo(map);
+var rodent = new L.layerGroup().addTo(map);
 var covenant = new L.layerGroup().addTo(map);
 var mercenary = new L.layerGroup().addTo(map);
 //anomaly
@@ -43,6 +44,7 @@ var main = {
 	"Bases" : base,
 	"Map Change" : mapchange,
 	"Bloodsuckers": bloodsucker,
+	"Rodents": rodent,
 	"Covenant": covenant,
 	"Mercenary": mercenary,
 	"Anomalies" : anomaly
@@ -166,6 +168,8 @@ var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([5960, 4976], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([5264, 4640], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([3921, 4423], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 // covenant
 var covenantMarkerPopup = L.popup().setContent("Covenant Encampment");
 var covenantMarker = L.marker(map.unproject([3167, 3840], map.getMaxZoom()), {icon:covenantCampIcon}).bindPopup(covenantMarkerPopup).addTo(covenant);
@@ -177,7 +181,11 @@ var covenantMarkerPopup = L.popup().setContent("Covenant Encampment");
 var covenantMarker = L.marker(map.unproject([7024, 4742], map.getMaxZoom()), {icon:covenantCampIcon}).bindPopup(covenantMarkerPopup).addTo(covenant);
 var covenantMarkerPopup = L.popup().setContent("Covenant Encampment");
 var covenantMarker = L.marker(map.unproject([2024, 3936], map.getMaxZoom()), {icon:covenantCampIcon}).bindPopup(covenantMarkerPopup).addTo(covenant);
-
+var covenantMarkerPopup = L.popup().setContent("Covenant Encampment");
+var covenantMarker = L.marker(map.unproject([6296, 4119], map.getMaxZoom()), {icon:covenantCampIcon}).bindPopup(covenantMarkerPopup).addTo(covenant);
+// rodents
+var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
+var rodenttMarker = L.marker(map.unproject([5233, 4899], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
 
 // anomalies
 // anomalous rift
@@ -187,6 +195,8 @@ var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([5895, 3547], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([5264, 3179], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([4699, 4131], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 
 
 // add layer control
