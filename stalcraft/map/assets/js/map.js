@@ -474,6 +474,12 @@ var mapPortalMarker = L.marker(map.unproject([10916, 1339], map.getMaxZoom()), {
 // bubbles
 var bubbleMarkerPopup = L.popup().setContent("Bubble");
 var bubbleMarker = L.marker(map.unproject([6087, 1919], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([6301, 2533], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([6522, 1805], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
+var bubbleMarkerPopup = L.popup().setContent("Bubble");
+var bubbleMarker = L.marker(map.unproject([6088, 1932], map.getMaxZoom()), {icon:bubbleIcon}).bindPopup(bubbleMarkerPopup).addTo(bubble);
 
 
 // events
