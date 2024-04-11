@@ -1172,6 +1172,8 @@ var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
 var fleshMarker = L.marker(map.unproject([9582, 605], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
 var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
 var fleshMarker = L.marker(map.unproject([6456, 2979], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
+var fleshMarkerPopup = L.popup().setContent("Flesh Hideout");
+var fleshMarker = L.marker(map.unproject([5972, 1239], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
 // backwater
 var fleshMarkerPopup = L.popup().setContent("Flesh Hideout+");
 var fleshMarker = L.marker(map.unproject([11190, 981], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(fleshMarkerPopup).addTo(flesh);
