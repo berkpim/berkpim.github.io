@@ -1611,6 +1611,10 @@ var bloodsuckerMarker = L.marker(map.unproject([10090, 1150], map.getMaxZoom()),
 
 // pseudogiants
 // the path of fools
+var pseudogiantMarkerPopup = L.popup().setContent("Pseudogiant Spawn");
+var pseudogiantMarker = L.marker(map.unproject([4525, 5314], map.getMaxZoom()), {icon:pseudogiantIcon}).bindPopup(pseudogiantMarkerPopup).addTo(pseudogiant);
+var pseudogiantMarkerPopup = L.popup().setContent("Pseudogiant Spawn");
+var pseudogiantMarker = L.marker(map.unproject([4243, 4535], map.getMaxZoom()), {icon:pseudogiantIcon}).bindPopup(pseudogiantMarkerPopup).addTo(pseudogiant);
 // army warehouses
 // the red forest
 var pseudogiantMarkerPopup = L.popup().setContent("Pseudogiant Spawn");
