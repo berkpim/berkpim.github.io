@@ -1676,6 +1676,8 @@ var pseudogiantMarker = L.marker(map.unproject([5802, 913], map.getMaxZoom()), {
 var pseudogiantMarkerPopup = L.popup().setContent("Pseudogiant Spawn");
 var pseudogiantMarker = L.marker(map.unproject([4451, 2988], map.getMaxZoom()), {icon:pseudogiantIcon}).bindPopup(pseudogiantMarkerPopup).addTo(pseudogiant);
 // backwater
+var pseudogiantMarkerPopup = L.popup().setContent("Pseudogiant Spawn");
+var pseudogiantMarker = L.marker(map.unproject([11722, 1139], map.getMaxZoom()), {icon:pseudogiantIcon}).bindPopup(pseudogiantMarkerPopup).addTo(pseudogiant);
 
 
 // chimera
