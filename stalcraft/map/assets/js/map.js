@@ -472,9 +472,25 @@ var mapPortalMarker = L.marker(map.unproject([11746, 1291], map.getMaxZoom()), {
 var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
 var mapPortalMarker = L.marker(map.unproject([12441, 1660], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
 var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
-var mapPortalMarker = L.marker(map.unproject([9890, 919], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
-var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
 var mapPortalMarker = L.marker(map.unproject([10916, 1339], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([10275, 878], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([10624, 1019], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([10604, 1632], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([11256, 1777], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([10071, 1353], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([12270, 1160], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([9883, 947], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([12013, 1519], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
+var mapPortalMarkerPopup = L.popup().setContent("Exit Backwater");
+var mapPortalMarker = L.marker(map.unproject([10572, 296], map.getMaxZoom()), {icon:mapPortalIcon}).bindPopup(mapPortalMarkerPopup).addTo(portal);
 
 
 // bubbles
@@ -872,6 +888,8 @@ var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([6816, 4346], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([7004, 4443], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
+var dogMarkerPopup = L.popup().setContent("Dog Den");
+var dogMarker = L.marker(map.unproject([5989, 4310], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
 // limansk
 var dogMarkerPopup = L.popup().setContent("Dog Den");
 var dogMarker = L.marker(map.unproject([5158, 3682], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(dogMarkerPopup).addTo(dog);
@@ -1333,7 +1351,7 @@ var boarMarker = L.marker(map.unproject([5129, 4683], map.getMaxZoom()), {icon:m
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([5298, 4866], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
-var boarMarker = L.marker(map.unproject([5426, 4752], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
+var boarMarker = L.marker(map.unproject([5399, 4708], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([5333, 4635], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
@@ -1437,6 +1455,8 @@ var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([12259, 1536], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 var boarMarkerPopup = L.popup().setContent("Boar Hideout");
 var boarMarker = L.marker(map.unproject([12234, 1627], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
+var boarMarkerPopup = L.popup().setContent("Boar Hideout");
+var boarMarker = L.marker(map.unproject([10083, 769], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(boarMarkerPopup).addTo(boar);
 
 
 // snorks
@@ -1459,6 +1479,9 @@ var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([4997, 5915], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
 var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([4946, 5676], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
+// the path of fools
+var snorkMarkerPopup = L.popup().setContent("Snork Den");
+var snorkMarker = L.marker(map.unproject([6263, 4579], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
 // army warehouses
 var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([8196, 4013], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
@@ -1483,6 +1506,8 @@ var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([11790, 461], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
 var snorkMarkerPopup = L.popup().setContent("Snork Den");
 var snorkMarker = L.marker(map.unproject([12207, 1369], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
+var snorkMarkerPopup = L.popup().setContent("Snork Den");
+var snorkMarker = L.marker(map.unproject([10661, 1915], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(snorkMarkerPopup).addTo(snork);
 
 
 // bloodsuckers
@@ -1547,6 +1572,8 @@ var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([6177, 4795], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([7146, 4949], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
+var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
+var bloodsuckerMarker = L.marker(map.unproject([6263, 4579], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
 // army warehouses
 var bloodsuckerMarkerPopup = L.popup().setContent("Bloodsucker Den");
 var bloodsuckerMarker = L.marker(map.unproject([8160, 4091], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(bloodsuckerMarkerPopup).addTo(bloodsucker);
@@ -2085,6 +2112,8 @@ var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([6619, 4228], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([7297, 4508], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([6207, 4619], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 // army warehouses
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([8176, 5627], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
@@ -2200,7 +2229,10 @@ var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([12369, 1743], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
 var zombieMarker = L.marker(map.unproject([12206, 1902], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
-
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10826, 1496], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
+var zombieMarkerPopup = L.popup().setContent("Zombie Encampment");
+var zombieMarker = L.marker(map.unproject([10527, 1560], map.getMaxZoom()), {icon:zombieIcon}).bindPopup(zombieMarkerPopup).addTo(zombie);
 
 
 // rescue
@@ -2352,6 +2384,8 @@ var monolithSquadMarkerPopup = L.popup().setContent("Monolith Squad");
 var monolithSquadMarker = L.marker(map.unproject([11475, 1559], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithSquadMarkerPopup).addTo(monolithsquad);
 var monolithSquadMarkerPopup = L.popup().setContent("Monolith Squad");
 var monolithSquadMarker = L.marker(map.unproject([11772, 1646], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithSquadMarkerPopup).addTo(monolithsquad);
+var monolithSquadMarkerPopup = L.popup().setContent("Monolith Squad");
+var monolithSquadMarker = L.marker(map.unproject([10604, 1632], map.getMaxZoom()), {icon:monolithCampIcon}).bindPopup(monolithSquadMarkerPopup).addTo(monolithsquad);
 
 
 // occupied buildings
@@ -2406,6 +2440,8 @@ var monolithAntennaMarkerPopup = L.popup().setContent("Monolith Antenna");
 var monolithAntennaMarker = L.marker(map.unproject([11451, 1859], map.getMaxZoom()), {icon:monolithAntennaIcon}).bindPopup(monolithAntennaMarkerPopup).addTo(monolithantenna);
 var monolithAntennaMarkerPopup = L.popup().setContent("Monolith Antenna");
 var monolithAntennaMarker = L.marker(map.unproject([12277, 1253], map.getMaxZoom()), {icon:monolithAntennaIcon}).bindPopup(monolithAntennaMarkerPopup).addTo(monolithantenna);
+var monolithAntennaMarkerPopup = L.popup().setContent("Monolith Antenna");
+var monolithAntennaMarker = L.marker(map.unproject([10199, 1528], map.getMaxZoom()), {icon:monolithAntennaIcon}).bindPopup(monolithAntennaMarkerPopup).addTo(monolithantenna);
 
 
 // airdrops
@@ -2646,6 +2682,8 @@ var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([4660, 4836], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([4294, 4564], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([6034, 4484], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 // army warehouses
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([8477, 5952], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
@@ -2981,6 +3019,8 @@ var stasisMarker = L.marker(map.unproject([9391, 846], map.getMaxZoom()), {icon:
 // backwater
 var stasisMarkerPopup = L.popup().setContent("Stasis");
 var stasisMarker = L.marker(map.unproject([9991, 423], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
+var stasisMarkerPopup = L.popup().setContent("Stasis");
+var stasisMarker = L.marker(map.unproject([11037, 1650], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
 
 
 // shelters
@@ -3507,18 +3547,32 @@ var shelterMarker = L.marker(map.unproject([9484, 1184], map.getMaxZoom()), {ico
 var shelterMarkerPopup = L.popup().setContent("Still need to verify");
 var shelterMarker = L.marker(map.unproject([9652, 1540], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 // backwater
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarkerPopup = L.popup().setContent("Shelter");
 var shelterMarker = L.marker(map.unproject([12183, 1202], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarkerPopup = L.popup().setContent("Shelter");
 var shelterMarker = L.marker(map.unproject([12358, 1645], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarkerPopup = L.popup().setContent("Shelter");
 var shelterMarker = L.marker(map.unproject([11360, 1288], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
-var shelterMarkerPopup = L.popup().setContent("Still need to verify");
+var shelterMarkerPopup = L.popup().setContent("Shelter");
 var shelterMarker = L.marker(map.unproject([11569, 412], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([10667, 1709], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([11122, 1771], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([10796, 1387], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([10635, 1030], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([10070, 1102], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([10511, 627], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
+var shelterMarkerPopup = L.popup().setContent("Shelter");
+var shelterMarker = L.marker(map.unproject([10365, 1201], map.getMaxZoom()), {icon:shelterIcon}).bindPopup(shelterMarkerPopup).addTo(shelter);
 
 
 // limansk spawns
-// enter spawn limansk
+// enter spawn
 var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
 var enterSpawnLimanskMarker = L.marker(map.unproject([4601, 4152], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
 var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
@@ -3539,11 +3593,20 @@ var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk"
 var enterSpawnLimanskMarker = L.marker(map.unproject([5465, 1298], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
 var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Limansk");
 var enterSpawnLimanskMarker = L.marker(map.unproject([5209, 1293], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
-// exit spawn limansk
+// exit spawn
 var exitSpawnLimanskMarkerPopup = L.popup().setContent("Exit spawn from Limansk (verify)");
 var exitSpawnLimanskMarker = L.marker(map.unproject([6866, 5440], map.getMaxZoom()), {icon:exitSpawnIcon}).bindPopup(exitSpawnLimanskMarkerPopup).addTo(exitspawn);
 var exitSpawnLimanskMarkerPopup = L.popup().setContent("Exit spawn from Limansk");
 var exitSpawnLimanskMarker = L.marker(map.unproject([6042, 5294], map.getMaxZoom()), {icon:exitSpawnIcon}).bindPopup(exitSpawnLimanskMarkerPopup).addTo(exitspawn);
+
+
+// backwater spawns
+// enter spawn
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Backwater");
+var enterSpawnLimanskMarker = L.marker(map.unproject([10145, 2382], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+var enterSpawnLimanskMarkerPopup = L.popup().setContent("Enter spawn in Backwater");
+var enterSpawnLimanskMarker = L.marker(map.unproject([12163, 2283], map.getMaxZoom()), {icon:enterSpawnIcon}).bindPopup(enterSpawnLimanskMarkerPopup).addTo(enterspawn);
+// exit spawn
 
 
 // add layer control
