@@ -21,6 +21,33 @@ var mapNE = [8200, 0];
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
+// Initialise the FeatureGroup to store editable layers
+var editableLayers = new L.FeatureGroup();
+map.addLayer(editableLayers);
+
+var drawPluginOptions = {
+  position: 'bottomleft',
+  edit: {
+    featureGroup: editableLayers //REQUIRED!!
+  }
+};
+
+// Initialise the draw control and pass it the FeatureGroup of editable layers
+var drawControl = new L.Control.Draw(drawPluginOptions);
+map.addControl(drawControl);
+
+map.on('draw:created', function(e) {
+  var type = e.layerType,
+    layer = e.layer;
+
+  if (type === 'marker') {
+    layer.bindPopup('A popup!');
+  }
+
+  editableLayers.addLayer(layer);
+});
+
+
 // layer groups
 // main
 var zone = new L.layerGroup().addTo(map);
@@ -36,7 +63,6 @@ var anomaly = new L.layerGroup().addTo(map);
 // others
 var shelter = new L.layerGroup();
 var test = new L.layerGroup().addTo(map);
-
 
 
 var main = {
@@ -80,10 +106,10 @@ var anomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/anomaly-rift-event.p
 
 
 // test draggable marker
-var marker = L.marker(map.unproject([4080, 4080], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
+var testmarker = L.marker(map.unproject([4080, 4080], map.getMaxZoom()), {draggable: true, icon: testIcon}).bindPopup('').addTo(test);
 
-marker.on('dragend', function(e) {
-	marker.getPopup().setContent('Pixels ' + map.project(marker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
+testmarker.on('dragend', function(e) {
+	testmarker.getPopup().setContent('Pixels ' + map.project(testmarker.getLatLng(), map.getMaxZoom().toString())).openOn(map);
 });
 
 
@@ -186,6 +212,7 @@ var covenantMarker = L.marker(map.unproject([6296, 4119], map.getMaxZoom()), {ic
 // rodents
 var rodentMarkerPopup = L.popup().setContent("Rodent Nest");
 var rodenttMarker = L.marker(map.unproject([5233, 4899], map.getMaxZoom()), {icon:mutantIcon}).bindPopup(rodentMarkerPopup).addTo(rodent);
+
 
 // anomalies
 // anomalous rift
