@@ -2501,6 +2501,9 @@ var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([11566, 418], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([11151, 1299], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+// yanov outskirts
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([9312, 2045], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 
 
 // blue airdrop
@@ -2526,6 +2529,9 @@ var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
 var airdropMarker = L.marker(map.unproject([9920, 629], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
 var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
 var airdropMarker = L.marker(map.unproject([11676, 648], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+// yanov outskirts
+var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
+var airdropMarker = L.marker(map.unproject([8813, 1128], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
 
 
 // gold airdrop
@@ -2888,6 +2894,8 @@ var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous 
 var defendingAnomalyRiftMarker = L.marker(map.unproject([6489, 3023], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([6598, 3302], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
+var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
+var defendingAnomalyRiftMarker = L.marker(map.unproject([6904, 2741], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 // backwater
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([11027, 287], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
