@@ -320,9 +320,9 @@ var chronoriftIcon = L.icon({iconUrl: 'assets/images/icons/chronorift-event.png'
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 // caches
 var copperWireIcon = L.icon({iconUrl: 'assets/images/icons/copper-wire.png', iconSize: [36, 36], iconAnchor: [18, 18]});
-var radioTransmitterIcon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter2.png', iconSize: [32, 32], iconAnchor: [16, 16]});
-var batteryIcon = L.icon({iconUrl: 'assets/images/icons/battery2.png', iconSize: [42, 42], iconAnchor: [21, 21]});
-var psyTrackerIcon = L.icon({iconUrl: 'assets/images/icons/psy-tracker2.png', iconSize: [40, 40], iconAnchor: [20, 20]});
+var radioTransmitterIcon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var batteryIcon = L.icon({iconUrl: 'assets/images/icons/battery.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var psyTrackerIcon = L.icon({iconUrl: 'assets/images/icons/psy-tracker.png', iconSize: [40, 40], iconAnchor: [20, 20]});
 
 
 // test draggable marker
@@ -3275,20 +3275,20 @@ var stasisMarker = L.marker(map.unproject([10049, 1079], map.getMaxZoom()), {ico
 // caches
 // copper wire
 // agroprom
-var copperWireMarkerPopup = L.popup().setContent("Pieces of Copper Wire");
+var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
 var copperWireMarker = L.marker(map.unproject([6656, 10590], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
 // the dump
 // the dark valley
 
 // radio transmitter
 // the pit
-var radioTransmitterMarkerPopup = L.popup().setContent("Remains of a Radio Transmitter");
+var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
 var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
 // the forest
 
 // battery
 // the dead city
-var batteryMarkerPopup = L.popup().setContent("Remains of Batteries");
+var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
 var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
 // graveyard
 // the path of fools
@@ -3296,7 +3296,7 @@ var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {ico
 
 // psy tracker
 // the red forest
-var psyTrackerMarkerPopup = L.popup().setContent("Remains of a Psy-Tracker");
+var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
 var psyTrackerMarker = L.marker(map.unproject([6059, 1954], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
 // yanov outskirts
 // backwater
