@@ -214,8 +214,10 @@ var redairdrop = new L.layerGroup();
 var blueairdrop = new L.layerGroup();
 var goldairdrop = new L.layerGroup();
 var miniboss = new L.layerGroup();
-//anomaly
+// anomaly
 var anomaly = new L.layerGroup();
+// caches
+var cache = new L.layerGroup();
 // others
 var shelter = new L.layerGroup();
 var enterspawn = new L.layerGroup();
@@ -253,7 +255,8 @@ var main = {
 	"Blue Airdrop": blueairdrop,
 	"Gold Airdrop": goldairdrop,
 	"Bosses": miniboss,
-	"Anomalies" : anomaly
+	"Anomalies" : anomaly,
+	"Caches": cache
 }
 
 var secondary = {
@@ -315,6 +318,11 @@ var defendingAnomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/defending-a
 var goldDefendingAnomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/gold-defending-anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var chronoriftIcon = L.icon({iconUrl: 'assets/images/icons/chronorift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+// caches
+var copperWireIcon = L.icon({iconUrl: 'assets/images/icons/copper-wire.png', iconSize: [36, 36], iconAnchor: [18, 18]});
+var radioTransmitterIcon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter2.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var batteryIcon = L.icon({iconUrl: 'assets/images/icons/battery2.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var psyTrackerIcon = L.icon({iconUrl: 'assets/images/icons/psy-tracker2.png', iconSize: [40, 40], iconAnchor: [20, 20]});
 
 
 // test draggable marker
@@ -3263,6 +3271,35 @@ var stasisMarker = L.marker(map.unproject([10066, 1063], map.getMaxZoom()), {ico
 var stasisMarkerPopup = L.popup().setContent("Stasis");
 var stasisMarker = L.marker(map.unproject([10049, 1079], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
 
+
+// caches
+// copper wire
+// agroprom
+var copperWireMarkerPopup = L.popup().setContent("Pieces of Copper Wire");
+var copperWireMarker = L.marker(map.unproject([6656, 10590], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+// the dump
+// the dark valley
+
+// radio transmitter
+// the pit
+var radioTransmitterMarkerPopup = L.popup().setContent("Remains of a Radio Transmitter");
+var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+// the forest
+
+// battery
+// the dead city
+var batteryMarkerPopup = L.popup().setContent("Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+// graveyard
+// the path of fools
+// army warehouses
+
+// psy tracker
+// the red forest
+var psyTrackerMarkerPopup = L.popup().setContent("Remains of a Psy-Tracker");
+var psyTrackerMarker = L.marker(map.unproject([6059, 1954], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+// yanov outskirts
+// backwater
 
 // shelters
 // the swamps
