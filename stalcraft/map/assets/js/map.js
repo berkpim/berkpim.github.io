@@ -21,72 +21,206 @@ var mapNE = [16384, 0];
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
-// Initialise the FeatureGroup to store editable layers
-var editableLayers = new L.FeatureGroup();
-map.addLayer(editableLayers);
+// leaflet-geoman controls options
+map.pm.addControls({  
+	position: 'topleft',
+	customControls: true,
+  }); 
 
-var drawPluginOptions = {
-  position: 'bottomleft',
-  edit: {
-    featureGroup: editableLayers //REQUIRED!!
-  }
-};
+// Add new buttons
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache1',
+		block: 'custom',
+		title: 'Tier 1 Cache',
+	});
+map.pm.Draw.cache1.setPathOptions({color: '#7DEF7D'});
 
-// Initialise the draw control and pass it the FeatureGroup of editable layers
-var drawControl = new L.Control.Draw(drawPluginOptions);
-map.addControl(drawControl);
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache2',
+		block: 'custom',
+		title: 'Tier 2 Cache',
+	});
+map.pm.Draw.cache2.setPathOptions({color: '#4B8DFF'});
 
-map.on('draw:created', function(e) {
-  var type = e.layerType,
-    layer = e.layer;
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache3',
+		block: 'custom',
+		title: 'Tier 3 Cache',
+	});
+map.pm.Draw.cache3.setPathOptions({color: '#D968C4'});
 
-  if (type === 'marker') {
-    layer.bindPopup('A popup!');
-  }
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache4',
+		block: 'custom',
+		title: 'Tier 4 Cache',
+	});
+map.pm.Draw.cache4.setPathOptions({color: '#FF5767'});
 
-  editableLayers.addLayer(layer);
-});
+map.pm.Toolbar.copyDrawControl('Polyline', {
+	name: 'customline',
+		block: 'custom',
+		title: 'Map Boundaries',
+	});
+map.pm.Draw.customline.setPathOptions({color: '#FFF', dashArray: [5, 5]});
 
+function generateGeoJson(){
+	var fg = L.featureGroup();    
+	var layers = findLayers(map);
+  
+	var geo = {
+		type: "FeatureCollection",
+		features: [],
+    };
+	layers.forEach(function(layer){
+		var geoJson = JSON.parse(JSON.stringify(layer.toGeoJSON()));
+		if(!geoJson.properties){
+			geoJson.properties = {};
+    	}
+    
+    	geoJson.properties.options = JSON.parse(JSON.stringify(layer.options));
+    
+		if(layer.options.radius){
+			var radius =  parseFloat(layer.options.radius);
+			if(radius % 1 !== 0) {
+				geoJson.properties.options.radius = radius.toFixed(6);
+			}else{
+				geoJson.properties.options.radius = radius.toFixed(0);
+			}
+		}
+
+
+		if (layer instanceof L.Rectangle) {
+			geoJson.properties.type = "rectangle";
+		} else if (layer instanceof L.Circle) {
+			geoJson.properties.type = "circle";
+		} else if (layer instanceof L.CircleMarker) {
+			geoJson.properties.type = "circlemarker";
+		} else if (layer instanceof L.Polygon) {
+			geoJson.properties.type = "polygon";
+		} else if (layer instanceof L.Polyline) {
+			geoJson.properties.type = "polyline";
+		} else if (layer instanceof L.Marker) {
+			geoJson.properties.type = "marker";
+		}
+		
+    	geo.features.push(geoJson);
+  	});
+	console.log(JSON.stringify(geo));
+  	alert(JSON.stringify(geo))
+}
+
+function findLayers(map) {
+	var layers = [];
+	map.eachLayer(layer => {
+		if (
+			layer instanceof L.Polyline ||
+			layer instanceof L.Marker ||
+			layer instanceof L.Circle ||
+			layer instanceof L.CircleMarker
+		) {
+			layers.push(layer);
+		}
+	});
+
+    // filter out layers that don't have the leaflet-geoman instance
+    layers = layers.filter(layer => !!layer.pm);
+
+    // filter out everything that's leaflet-geoman specific temporary stuff
+    layers = layers.filter(layer => !layer._pmTempLayer);
+
+    return layers;
+}
+  
+function importGeo(){
+	var prom = prompt();
+	if(prom){
+		importGeoJSON(JSON.parse(prom));
+	}
+}
+  
+function importGeoJSON(feature){
+	var geoLayer = L.geoJSON(feature, {
+		style: function (feature) {
+			return feature.properties.options;
+		},
+			pointToLayer: function(feature, latlng){
+				switch (feature.properties.type) {
+					case "marker": return new L.Marker(latlng);
+					case "circle": return new L.Circle(latlng, feature.properties.options);
+					case "circlemarker": return new L.CircleMarker(latlng, feature.properties.options);
+			}
+		}
+	});
+	
+	geoLayer.getLayers().forEach((layer) => {	
+		if (layer._latlng) {
+			var latlng = layer.getLatLng();
+		} else {
+			var latlng = layer.getLatLngs();
+		}
+		switch (layer.feature.properties.type) {
+			case "rectangle":
+				new L.Rectangle(latlng,  layer.options).addTo(map);
+				break;
+			case "circle":
+					console.log(layer.options)
+				new L.Circle(latlng, layer.options).addTo(map);
+				break;
+			case "polygon":
+				new L.Polygon(latlng, layer.options).addTo(map);
+				break;
+			case "polyline":
+				new L.Polyline(latlng, layer.options).addTo(map);
+				break;
+			case "marker":
+				new L.Marker(latlng, layer.options).addTo(map);
+				break;
+			case "circlemarker":
+				new L.CircleMarker(latlng, layer.options).addTo(map);
+				break;
+		}
+	})
+}
 
 // layer groups
 // main
-var zone = new L.layerGroup().addTo(map);
-var base = new L.layerGroup().addTo(map);
-var conquestbase = new L.layerGroup().addTo(map);
-var mapchange = new L.layerGroup().addTo(map);
-var underground = new L.layerGroup().addTo(map);
-var portal = new L.layerGroup().addTo(map);
+var zone = new L.layerGroup();
+var base = new L.layerGroup();
+var conquestbase = new L.layerGroup();
+var mapchange = new L.layerGroup();
+var underground = new L.layerGroup();
+var portal = new L.layerGroup();
 var bubble = new L.layerGroup();
 // events
-var rodent = new L.layerGroup().addTo(map);
-var dog = new L.layerGroup().addTo(map);
-var flesh = new L.layerGroup().addTo(map);
-var boar = new L.layerGroup().addTo(map);
-var snork = new L.layerGroup().addTo(map);
-var bloodsucker = new L.layerGroup().addTo(map);
-var zombie = new L.layerGroup().addTo(map);
-var rescue = new L.layerGroup().addTo(map);
-var banditcamp = new L.layerGroup().addTo(map);
-var stalkercamp = new L.layerGroup().addTo(map);
-var military = new L.layerGroup().addTo(map);
-var monolithsquad = new L.layerGroup().addTo(map);
-var occupiedbuilding = new L.layerGroup().addTo(map);
-var monolithbase = new L.layerGroup().addTo(map);
-var monolithantenna = new L.layerGroup().addTo(map);
-var monolithoutpost = new L.layerGroup().addTo(map);
-var pseudogiant = new L.layerGroup().addTo(map);
-var chimera = new L.layerGroup().addTo(map);
-var redairdrop = new L.layerGroup().addTo(map);
-var blueairdrop = new L.layerGroup().addTo(map);
-var goldairdrop = new L.layerGroup().addTo(map);
-var miniboss = new L.layerGroup().addTo(map);
+var rodent = new L.layerGroup();
+var dog = new L.layerGroup();
+var flesh = new L.layerGroup();
+var boar = new L.layerGroup();
+var snork = new L.layerGroup();
+var bloodsucker = new L.layerGroup();
+var zombie = new L.layerGroup();
+var rescue = new L.layerGroup();
+var banditcamp = new L.layerGroup();
+var stalkercamp = new L.layerGroup();
+var military = new L.layerGroup();
+var monolithsquad = new L.layerGroup();
+var occupiedbuilding = new L.layerGroup();
+var monolithbase = new L.layerGroup();
+var monolithantenna = new L.layerGroup();
+var monolithoutpost = new L.layerGroup();
+var pseudogiant = new L.layerGroup();
+var chimera = new L.layerGroup();
+var redairdrop = new L.layerGroup();
+var blueairdrop = new L.layerGroup();
+var goldairdrop = new L.layerGroup();
+var miniboss = new L.layerGroup();
 //anomaly
-var anomaly = new L.layerGroup().addTo(map);
+var anomaly = new L.layerGroup();
 // others
 var shelter = new L.layerGroup();
 var enterspawn = new L.layerGroup();
 var exitspawn = new L.layerGroup();
-var test = new L.layerGroup().addTo(map);
+var test = new L.layerGroup();
 
 
 var main = {
