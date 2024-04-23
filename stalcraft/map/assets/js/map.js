@@ -63,6 +63,8 @@ map.pm.Toolbar.copyDrawControl('Polyline', {
 	});
 map.pm.Draw.customline.setPathOptions({color: '#FFF', dashArray: [5, 5]});
 
+map.pm.setGlobalOptions({pinning: true, snappable: false});
+
 function generateGeoJson(){
 	var fg = L.featureGroup();    
 	var layers = findLayers(map);
