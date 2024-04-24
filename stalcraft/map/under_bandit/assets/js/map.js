@@ -21,33 +21,6 @@ var mapNE = [8200, 0];
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
-// Initialise the FeatureGroup to store editable layers
-var editableLayers = new L.FeatureGroup();
-map.addLayer(editableLayers);
-
-var drawPluginOptions = {
-  position: 'bottomleft',
-  edit: {
-    featureGroup: editableLayers //REQUIRED!!
-  }
-};
-
-// Initialise the draw control and pass it the FeatureGroup of editable layers
-var drawControl = new L.Control.Draw(drawPluginOptions);
-map.addControl(drawControl);
-
-map.on('draw:created', function(e) {
-  var type = e.layerType,
-    layer = e.layer;
-
-  if (type === 'marker') {
-    layer.bindPopup('A popup!');
-  }
-
-  editableLayers.addLayer(layer);
-});
-
-
 // layer groups
 // main
 var zone = new L.layerGroup().addTo(map);

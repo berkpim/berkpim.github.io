@@ -56,12 +56,40 @@ map.pm.Toolbar.copyDrawControl('Polygon', {
 	});
 map.pm.Draw.cache4.setPathOptions({color: '#FF5767'});
 
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache5',
+		block: 'custom',
+		title: 'Tier 4 Cache',
+	});
+map.pm.Draw.cache5.setPathOptions({color: '#7DEF7D'});
+
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache6',
+		block: 'custom',
+		title: 'Tier 2 Cache',
+	});
+map.pm.Draw.cache6.setPathOptions({color: '#4B8DFF'});
+
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache7',
+		block: 'custom',
+		title: 'Tier 3 Cache',
+	});
+map.pm.Draw.cache7.setPathOptions({color: '#D968C4'});
+
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache8',
+		block: 'custom',
+		title: 'Tier 4 Cache',
+	});
+map.pm.Draw.cache8.setPathOptions({color: '#FF5767'});
+
 map.pm.Toolbar.copyDrawControl('Polyline', {
 	name: 'customline',
 		block: 'custom',
 		title: 'Map Boundaries',
 	});
-map.pm.Draw.customline.setPathOptions({color: '#FFF', dashArray: [5, 5]});
+map.pm.Draw.customline.setPathOptions({color: '#D0CFCF', dashArray: [5, 5]});
 
 map.pm.setGlobalOptions({pinning: true, snappable: false});
 
@@ -322,9 +350,17 @@ var chronoriftIcon = L.icon({iconUrl: 'assets/images/icons/chronorift-event.png'
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 // caches
 var copperWireIcon = L.icon({iconUrl: 'assets/images/icons/copper-wire.png', iconSize: [36, 36], iconAnchor: [18, 18]});
+var copperWire2Icon = L.icon({iconUrl: 'assets/images/icons/copper-wire2.png', iconSize: [36, 36], iconAnchor: [18, 18]});
+var copperWire3Icon = L.icon({iconUrl: 'assets/images/icons/copper-wire3.png', iconSize: [36, 36], iconAnchor: [18, 18]});
 var radioTransmitterIcon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var radioTransmitter2Icon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter2.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var radioTransmitter3Icon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter3.png', iconSize: [32, 32], iconAnchor: [16, 16]});
 var batteryIcon = L.icon({iconUrl: 'assets/images/icons/battery.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var battery2Icon = L.icon({iconUrl: 'assets/images/icons/battery2.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var battery3Icon = L.icon({iconUrl: 'assets/images/icons/battery3.png', iconSize: [42, 42], iconAnchor: [21, 21]});
 var psyTrackerIcon = L.icon({iconUrl: 'assets/images/icons/psy-tracker.png', iconSize: [40, 40], iconAnchor: [20, 20]});
+var psyTracker2Icon = L.icon({iconUrl: 'assets/images/icons/psy-tracker2.png', iconSize: [40, 40], iconAnchor: [20, 20]});
+var psyTracker3Icon = L.icon({iconUrl: 'assets/images/icons/psy-tracker3.png', iconSize: [40, 40], iconAnchor: [20, 20]});
 
 
 // test draggable marker
@@ -2655,6 +2691,13 @@ var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([5719, 858], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([6838, 663], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+// yanov ourskirts
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([9430, 1850], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([8344, 1650], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([9192, 793], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 // limansk
 var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([5350, 3044], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
@@ -2686,6 +2729,11 @@ var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
 var airdropMarker = L.marker(map.unproject([6069, 912], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
 var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
 var airdropMarker = L.marker(map.unproject([5716, 1140], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+// yanov outskirts
+var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
+var airdropMarker = L.marker(map.unproject([9064, 773], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
+var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
+var airdropMarker = L.marker(map.unproject([8218, 1843], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
 // backwater
 var airdropMarkerPopup = L.popup().setContent("Blue Airdrop");
 var airdropMarker = L.marker(map.unproject([10464, 1039], map.getMaxZoom()), {icon:blueAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(blueairdrop);
@@ -3038,6 +3086,10 @@ var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([8596, 972], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([8514, 580], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([8334, 1159], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
+var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
+var anomalyRfitMarker = L.marker(map.unproject([8371, 1779], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
 // backwater
 var anomalyRiftMarkerPopup = L.popup().setContent("Anomalous Rift");
 var anomalyRfitMarker = L.marker(map.unproject([11996, 1503], map.getMaxZoom()), {icon:anomalyRiftIcon}).bindPopup(anomalyRiftMarkerPopup).addTo(anomaly);
@@ -3058,15 +3110,20 @@ var anomalyRfitMarker = L.marker(map.unproject([12279, 1379], map.getMaxZoom()),
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([6053, 774], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
-var defendingAnomalyRiftMarker = L.marker(map.unproject([6872, 1019], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
+var defendingAnomalyRiftMarker = L.marker(map.unproject([6899, 1000], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([7423, 1060], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
-var defendingAnomalyRiftMarker = L.marker(map.unproject([6489, 3023], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
+var defendingAnomalyRiftMarker = L.marker(map.unproject([6474, 3071], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([6598, 3302], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([6904, 2741], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
+// yanov outskirts
+var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
+var defendingAnomalyRiftMarker = L.marker(map.unproject([8392, 2041], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
+var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
+var defendingAnomalyRiftMarker = L.marker(map.unproject([8630, 1457], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
 // backwater
 var defendingAnomalyRiftMarkerPopup = L.popup().setContent("Defending Anomalous Rift");
 var defendingAnomalyRiftMarker = L.marker(map.unproject([11027, 287], map.getMaxZoom()), {icon:defendingAnomalyRiftIcon}).bindPopup(defendingAnomalyRiftMarkerPopup).addTo(anomaly);
@@ -3275,10 +3332,16 @@ var stasisMarker = L.marker(map.unproject([10049, 1079], map.getMaxZoom()), {ico
 
 
 // caches
+// load caches from json file
+//L.geoJSON(cacheLibrary).addTo(map);
 // copper wire
 // agroprom
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
 var copperWireMarker = L.marker(map.unproject([6656, 10590], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarkerPopup = L.popup().setContent("[Nv.2] Pieces of Copper Wire");
+var copperWireMarker = L.marker(map.unproject([6656, 10590], map.getMaxZoom()), {icon:copperWire2Icon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarkerPopup = L.popup().setContent("[Nv.3] Pieces of Copper Wire");
+var copperWireMarker = L.marker(map.unproject([6656, 10590], map.getMaxZoom()), {icon:copperWire3Icon}).bindPopup(copperWireMarkerPopup).addTo(cache);
 // the dump
 // the dark valley
 
@@ -3286,12 +3349,20 @@ var copperWireMarker = L.marker(map.unproject([6656, 10590], map.getMaxZoom()), 
 // the pit
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
 var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.2] Remains of a Radio Transmitter");
+var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitter2Icon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.3] Remains of a Radio Transmitter");
+var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitter3Icon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
 // the forest
 
 // battery
 // the dead city
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
 var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarkerPopup = L.popup().setContent("[Nv.2] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {icon:battery2Icon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarkerPopup = L.popup().setContent("[Nv.3] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {icon:battery3Icon}).bindPopup(batteryMarkerPopup).addTo(cache);
 // graveyard
 // the path of fools
 // army warehouses
@@ -3300,6 +3371,10 @@ var batteryMarker = L.marker(map.unproject([5259, 6035], map.getMaxZoom()), {ico
 // the red forest
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
 var psyTrackerMarker = L.marker(map.unproject([6059, 1954], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarkerPopup = L.popup().setContent("[Nv.2] Remains of a Psy-Tracker");
+var psyTrackerMarker = L.marker(map.unproject([6059, 1954], map.getMaxZoom()), {icon:psyTracker2Icon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarkerPopup = L.popup().setContent("[Nv.3] Remains of a Psy-Tracker");
+var psyTrackerMarker = L.marker(map.unproject([6059, 1954], map.getMaxZoom()), {icon:psyTracker3Icon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
 // yanov outskirts
 // backwater
 

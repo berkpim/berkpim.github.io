@@ -21,51 +21,218 @@ var mapNE = [8200, 0];
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
-// Initialise the FeatureGroup to store editable layers
-var editableLayers = new L.FeatureGroup();
-map.addLayer(editableLayers);
+// leaflet-geoman controls options
+map.pm.addControls({  
+	position: 'topleft',
+	customControls: true,
+  }); 
 
-var drawPluginOptions = {
-  position: 'bottomleft',
-  edit: {
-    featureGroup: editableLayers //REQUIRED!!
-  }
-};
+// Add new buttons
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache1',
+		block: 'custom',
+		title: 'Tier 1 Cache',
+	});
+map.pm.Draw.cache1.setPathOptions({color: '#7DEF7D'});
 
-// Initialise the draw control and pass it the FeatureGroup of editable layers
-var drawControl = new L.Control.Draw(drawPluginOptions);
-map.addControl(drawControl);
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache2',
+		block: 'custom',
+		title: 'Tier 2 Cache',
+	});
+map.pm.Draw.cache2.setPathOptions({color: '#4B8DFF'});
 
-map.on('draw:created', function(e) {
-  var type = e.layerType,
-    layer = e.layer;
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache3',
+		block: 'custom',
+		title: 'Tier 3 Cache',
+	});
+map.pm.Draw.cache3.setPathOptions({color: '#D968C4'});
 
-  if (type === 'marker') {
-    layer.bindPopup('A popup!');
-  }
+map.pm.Toolbar.copyDrawControl('Polygon', {
+	name: 'cache4',
+		block: 'custom',
+		title: 'Tier 4 Cache',
+	});
+map.pm.Draw.cache4.setPathOptions({color: '#FF5767'});
 
-  editableLayers.addLayer(layer);
-});
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache5',
+		block: 'custom',
+		title: 'Tier 4 Cache',
+	});
+map.pm.Draw.cache5.setPathOptions({color: '#7DEF7D'});
+
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache6',
+		block: 'custom',
+		title: 'Tier 2 Cache',
+	});
+map.pm.Draw.cache6.setPathOptions({color: '#4B8DFF'});
+
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache7',
+		block: 'custom',
+		title: 'Tier 3 Cache',
+	});
+map.pm.Draw.cache7.setPathOptions({color: '#D968C4'});
+
+map.pm.Toolbar.copyDrawControl('Circle', {
+	name: 'cache8',
+		block: 'custom',
+		title: 'Tier 4 Cache',
+	});
+map.pm.Draw.cache8.setPathOptions({color: '#FF5767'});
+
+map.pm.Toolbar.copyDrawControl('Polyline', {
+	name: 'customline',
+		block: 'custom',
+		title: 'Map Boundaries',
+	});
+map.pm.Draw.customline.setPathOptions({color: '#D0CFCF', dashArray: [5, 5]});
+
+map.pm.setGlobalOptions({pinning: true, snappable: false});
+
+function generateGeoJson(){
+	var fg = L.featureGroup();    
+	var layers = findLayers(map);
+  
+	var geo = {
+		type: "FeatureCollection",
+		features: [],
+    };
+	layers.forEach(function(layer){
+		var geoJson = JSON.parse(JSON.stringify(layer.toGeoJSON()));
+		if(!geoJson.properties){
+			geoJson.properties = {};
+    	}
+    
+    	geoJson.properties.options = JSON.parse(JSON.stringify(layer.options));
+    
+		if(layer.options.radius){
+			var radius =  parseFloat(layer.options.radius);
+			if(radius % 1 !== 0) {
+				geoJson.properties.options.radius = radius.toFixed(6);
+			}else{
+				geoJson.properties.options.radius = radius.toFixed(0);
+			}
+		}
+
+
+		if (layer instanceof L.Rectangle) {
+			geoJson.properties.type = "rectangle";
+		} else if (layer instanceof L.Circle) {
+			geoJson.properties.type = "circle";
+		} else if (layer instanceof L.CircleMarker) {
+			geoJson.properties.type = "circlemarker";
+		} else if (layer instanceof L.Polygon) {
+			geoJson.properties.type = "polygon";
+		} else if (layer instanceof L.Polyline) {
+			geoJson.properties.type = "polyline";
+		} else if (layer instanceof L.Marker) {
+			geoJson.properties.type = "marker";
+		}
+		
+    	geo.features.push(geoJson);
+  	});
+	console.log(JSON.stringify(geo));
+  	alert(JSON.stringify(geo))
+}
+
+function findLayers(map) {
+	var layers = [];
+	map.eachLayer(layer => {
+		if (
+			layer instanceof L.Polyline ||
+			layer instanceof L.Marker ||
+			layer instanceof L.Circle ||
+			layer instanceof L.CircleMarker
+		) {
+			layers.push(layer);
+		}
+	});
+
+    // filter out layers that don't have the leaflet-geoman instance
+    layers = layers.filter(layer => !!layer.pm);
+
+    // filter out everything that's leaflet-geoman specific temporary stuff
+    layers = layers.filter(layer => !layer._pmTempLayer);
+
+    return layers;
+}
+  
+function importGeo(){
+	var prom = prompt();
+	if(prom){
+		importGeoJSON(JSON.parse(prom));
+	}
+}
+  
+function importGeoJSON(feature){
+	var geoLayer = L.geoJSON(feature, {
+		style: function (feature) {
+			return feature.properties.options;
+		},
+			pointToLayer: function(feature, latlng){
+				switch (feature.properties.type) {
+					case "marker": return new L.Marker(latlng);
+					case "circle": return new L.Circle(latlng, feature.properties.options);
+					case "circlemarker": return new L.CircleMarker(latlng, feature.properties.options);
+			}
+		}
+	});
+	
+	geoLayer.getLayers().forEach((layer) => {	
+		if (layer._latlng) {
+			var latlng = layer.getLatLng();
+		} else {
+			var latlng = layer.getLatLngs();
+		}
+		switch (layer.feature.properties.type) {
+			case "rectangle":
+				new L.Rectangle(latlng,  layer.options).addTo(map);
+				break;
+			case "circle":
+					console.log(layer.options)
+				new L.Circle(latlng, layer.options).addTo(map);
+				break;
+			case "polygon":
+				new L.Polygon(latlng, layer.options).addTo(map);
+				break;
+			case "polyline":
+				new L.Polyline(latlng, layer.options).addTo(map);
+				break;
+			case "marker":
+				new L.Marker(latlng, layer.options).addTo(map);
+				break;
+			case "circlemarker":
+				new L.CircleMarker(latlng, layer.options).addTo(map);
+				break;
+		}
+	})
+}
 
 
 // layer groups
 // main
-var zone = new L.layerGroup().addTo(map);
-var mapchange = new L.layerGroup().addTo(map);
+var zone = new L.layerGroup();
+var mapchange = new L.layerGroup();
 // events
-var rodent = new L.layerGroup().addTo(map);
-var dog = new L.layerGroup().addTo(map);
-var flesh = new L.layerGroup().addTo(map);
-var boar = new L.layerGroup().addTo(map);
-var snork = new L.layerGroup().addTo(map);
-var bloodsucker = new L.layerGroup().addTo(map);
-var zombie = new L.layerGroup().addTo(map);
-var rescue = new L.layerGroup().addTo(map);
+var rodent = new L.layerGroup();
+var dog = new L.layerGroup();
+var flesh = new L.layerGroup();
+var boar = new L.layerGroup();
+var snork = new L.layerGroup();
+var bloodsucker = new L.layerGroup();
+var zombie = new L.layerGroup();
+var rescue = new L.layerGroup();
 //anomaly
-var anomaly = new L.layerGroup().addTo(map);
+var anomaly = new L.layerGroup();
+// caches
+var cache = new L.layerGroup();
 // others
 var shelter = new L.layerGroup();
-var test = new L.layerGroup().addTo(map);
+var test = new L.layerGroup();
 
 
 var main = {
@@ -79,7 +246,8 @@ var main = {
 	"Bloodsuckers": bloodsucker,
 	"Zombies": zombie,
 	"Rescue": rescue,
-	"Anomalies" : anomaly
+	"Anomalies" : anomaly,
+	"Caches": cache
 }
 
 var secondary = {
@@ -108,6 +276,19 @@ var rescueIcon = L.icon({iconUrl: 'assets/images/icons/rescue-event.png', iconSi
 // anomalies
 var anomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+// caches
+var copperWireIcon = L.icon({iconUrl: 'assets/images/icons/copper-wire.png', iconSize: [36, 36], iconAnchor: [18, 18]});
+var copperWire2Icon = L.icon({iconUrl: 'assets/images/icons/copper-wire2.png', iconSize: [36, 36], iconAnchor: [18, 18]});
+var copperWire3Icon = L.icon({iconUrl: 'assets/images/icons/copper-wire3.png', iconSize: [36, 36], iconAnchor: [18, 18]});
+var radioTransmitterIcon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var radioTransmitter2Icon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter2.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var radioTransmitter3Icon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter3.png', iconSize: [32, 32], iconAnchor: [16, 16]});
+var batteryIcon = L.icon({iconUrl: 'assets/images/icons/battery.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var battery2Icon = L.icon({iconUrl: 'assets/images/icons/battery2.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var battery3Icon = L.icon({iconUrl: 'assets/images/icons/battery3.png', iconSize: [42, 42], iconAnchor: [21, 21]});
+var psyTrackerIcon = L.icon({iconUrl: 'assets/images/icons/psy-tracker.png', iconSize: [40, 40], iconAnchor: [20, 20]});
+var psyTracker2Icon = L.icon({iconUrl: 'assets/images/icons/psy-tracker2.png', iconSize: [40, 40], iconAnchor: [20, 20]});
+var psyTracker3Icon = L.icon({iconUrl: 'assets/images/icons/psy-tracker3.png', iconSize: [40, 40], iconAnchor: [20, 20]});
 
 
 // test draggable marker
