@@ -3333,7 +3333,18 @@ var stasisMarker = L.marker(map.unproject([10049, 1079], map.getMaxZoom()), {ico
 
 // caches
 // load caches from json file
-//L.geoJSON(cacheLibrary).addTo(map);
+function cacheStyle(feature) {
+    return {
+        color: feature.properties.options.color
+    };
+}
+
+L.geoJson(cacheLibrary, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng);
+    },
+	style: cacheStyle
+}).addTo(cache);
 // copper wire
 // agroprom
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");

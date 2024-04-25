@@ -277,18 +277,9 @@ var rescueIcon = L.icon({iconUrl: 'assets/images/icons/rescue-event.png', iconSi
 var anomalyRiftIcon = L.icon({iconUrl: 'assets/images/icons/anomaly-rift-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var stasisIcon = L.icon({iconUrl: 'assets/images/icons/stasis-icon.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 // caches
-var copperWireIcon = L.icon({iconUrl: 'assets/images/icons/copper-wire.png', iconSize: [36, 36], iconAnchor: [18, 18]});
-var copperWire2Icon = L.icon({iconUrl: 'assets/images/icons/copper-wire2.png', iconSize: [36, 36], iconAnchor: [18, 18]});
-var copperWire3Icon = L.icon({iconUrl: 'assets/images/icons/copper-wire3.png', iconSize: [36, 36], iconAnchor: [18, 18]});
-var radioTransmitterIcon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter.png', iconSize: [32, 32], iconAnchor: [16, 16]});
-var radioTransmitter2Icon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter2.png', iconSize: [32, 32], iconAnchor: [16, 16]});
-var radioTransmitter3Icon = L.icon({iconUrl: 'assets/images/icons/radio-transmitter3.png', iconSize: [32, 32], iconAnchor: [16, 16]});
 var batteryIcon = L.icon({iconUrl: 'assets/images/icons/battery.png', iconSize: [42, 42], iconAnchor: [21, 21]});
 var battery2Icon = L.icon({iconUrl: 'assets/images/icons/battery2.png', iconSize: [42, 42], iconAnchor: [21, 21]});
 var battery3Icon = L.icon({iconUrl: 'assets/images/icons/battery3.png', iconSize: [42, 42], iconAnchor: [21, 21]});
-var psyTrackerIcon = L.icon({iconUrl: 'assets/images/icons/psy-tracker.png', iconSize: [40, 40], iconAnchor: [20, 20]});
-var psyTracker2Icon = L.icon({iconUrl: 'assets/images/icons/psy-tracker2.png', iconSize: [40, 40], iconAnchor: [20, 20]});
-var psyTracker3Icon = L.icon({iconUrl: 'assets/images/icons/psy-tracker3.png', iconSize: [40, 40], iconAnchor: [20, 20]});
 
 
 // test draggable marker
@@ -414,6 +405,23 @@ var stasisMarkerPopup = L.popup().setContent("Stasis");
 var stasisMarker = L.marker(map.unproject([3990, 2416], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
 var stasisMarkerPopup = L.popup().setContent("Stasis");
 var stasisMarker = L.marker(map.unproject([4856, 2589], map.getMaxZoom()), {icon:stasisIcon}).bindPopup(stasisMarkerPopup).addTo(anomaly);
+
+
+// caches
+// load caches from json file
+function cacheStyle(feature) {
+    return {
+        fillColor: feature.properties.options.color,
+        color: feature.properties.options.color
+    };
+}
+
+L.geoJson(cacheLibrary, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng);
+    },
+	style: cacheStyle
+}).addTo(cache);
 
 
 // add layer control
