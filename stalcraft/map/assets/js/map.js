@@ -255,6 +255,7 @@ var miniboss = new L.layerGroup();
 var anomaly = new L.layerGroup();
 // caches
 var cache = new L.layerGroup();
+var cachetier = new L.layerGroup();
 // others
 var shelter = new L.layerGroup();
 var enterspawn = new L.layerGroup();
@@ -295,7 +296,8 @@ var main = {
 	"Gold Airdrop": goldairdrop,
 	"Bosses": miniboss,
 	"Anomalies" : anomaly,
-	"Caches": cache
+	"Caches": cache,
+	"Cache Tiers": cachetier
 }
 var secondary = {
 	"Shelters" : shelter,
@@ -3366,204 +3368,204 @@ L.geoJson(cacheLibrary, {
 // copper wire
 // agroprom
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([6587, 10628], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([6587, 10628], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([5830, 10562], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([5830, 10562], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([4908, 10525], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([4908, 10525], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([4950, 9963], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([4950, 9963], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([6117, 10032], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([6117, 10032], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([6490, 9684], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([6490, 9684], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([6482, 9556], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([6482, 9556], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([5994, 9530], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([5994, 9530], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 // the dump
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([8684, 10485], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([8684, 10485], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([8112, 10383], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([8112, 10383], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([8282, 9981], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([8282, 9981], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([7997, 8957], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([7997, 8957], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([8782, 9147], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([8782, 9147], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([8445, 9102], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([8445, 9102], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([9225, 8936], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([9225, 8936], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([8229, 8454], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([8229, 8454], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([9782, 9255], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([9782, 9255], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([9351, 10112], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([9351, 10112], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 // the dark valley
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10380, 9610], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10380, 9610], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10645, 9428], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10645, 9428], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([11232, 9683], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([11232, 9683], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([11029, 9848], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([11029, 9848], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10385, 9614], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10385, 9614], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10883, 10409], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10883, 10409], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([11099, 10204], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([11099, 10204], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10453, 10627], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10453, 10627], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([11331, 10486], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([11331, 10486], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([11591, 10447], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([11591, 10447], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10978, 10854], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10978, 10854], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([10401, 11005], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([10401, 11005], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 var copperWireMarkerPopup = L.popup().setContent("[Nv.1] Pieces of Copper Wire");
-var copperWireMarker = L.marker(map.unproject([11560, 10906], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cache);
+var copperWireMarker = L.marker(map.unproject([11560, 10906], map.getMaxZoom()), {icon:copperWireIcon}).bindPopup(copperWireMarkerPopup).addTo(cachetier);
 
 
 // radio transmitter
 // the pit
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([6014, 8129], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([6014, 8129], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([5344, 7970], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([5344, 7970], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([5794, 7683], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([5794, 7683], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([5394, 7405], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([5394, 7405], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([5171, 7343], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([5171, 7343], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([5665, 7338], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([5665, 7338], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([6191, 7240], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 // the forest
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([9330, 7995], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([9330, 7995], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([9405, 7737], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([9405, 7737], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([9541, 7823], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([9541, 7823], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([9853, 7645], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([9853, 7645], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([9880, 7267], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([9880, 7267], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([10305, 7523], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([10305, 7523], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([10171, 7968], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([10171, 7968], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([9894, 8272], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([9894, 8272], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([10495, 8443], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([10495, 8443], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([10797, 8128], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([10797, 8128], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([10693, 7340], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([10693, 7340], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([11000, 7541], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([11000, 7541], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([11273, 7372], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([11273, 7372], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([11281, 7997], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([11281, 7997], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 var radioTransmitterMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Radio Transmitter");
-var radioTransmitterMarker = L.marker(map.unproject([11107, 8284], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cache);
+var radioTransmitterMarker = L.marker(map.unproject([11107, 8284], map.getMaxZoom()), {icon:radioTransmitterIcon}).bindPopup(radioTransmitterMarkerPopup).addTo(cachetier);
 
 
 // battery
 // the dead city
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([4602, 5733], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([4602, 5733], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([4717, 6145], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([4717, 6145], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5261, 6035], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5261, 6035], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5323, 5553], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5323, 5553], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5443, 5994], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5443, 5994], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5589, 5771], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5589, 5771], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5990, 5675], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5990, 5675], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5880, 5846], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5880, 5846], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5900, 6253], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5900, 6253], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 // the path of fools
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([4491, 4876], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([4491, 4876], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([4930, 4848], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([4930, 4848], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([5347, 4448], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([5347, 4448], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([6139, 4794], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([6139, 4794], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([6545, 4859], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([6545, 4859], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([6462, 4242], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([6462, 4242], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([6547, 4372], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([6547, 4372], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([7008, 4441], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([7008, 4441], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([7030, 4714], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([7030, 4714], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([6897, 5209], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([6897, 5209], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 // army warehouses
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([8325, 4899], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([8325, 4899], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([8404, 4440], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([8404, 4440], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([8840, 4153], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([8840, 4153], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([9256, 5079], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([9256, 5079], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([9438, 5660], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([9438, 5660], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([9869, 5637], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([9869, 5637], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
-var batteryMarker = L.marker(map.unproject([9902, 4293], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cache);
+var batteryMarker = L.marker(map.unproject([9902, 4293], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 
 
 // psy tracker
 // the red forest
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6213, 3531], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6213, 3531], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6577, 3311], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6577, 3311], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6834, 3537], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6834, 3537], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([7295, 2797], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([7295, 2797], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6075, 1945], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6075, 1945], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6791, 2139], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6791, 2139], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6517, 1618], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6517, 1618], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([7072, 1410], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([7072, 1410], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([6334, 950], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([6334, 950], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 // yanov outskirts
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([0, 0], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([0, 0], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 // backwater
 var psyTrackerMarkerPopup = L.popup().setContent("[Nv.1] Remains of a Psy-Tracker");
-var psyTrackerMarker = L.marker(map.unproject([0, 0], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cache);
+var psyTrackerMarker = L.marker(map.unproject([0, 0], map.getMaxZoom()), {icon:psyTrackerIcon}).bindPopup(psyTrackerMarkerPopup).addTo(cachetier);
 
 
 // shelters
@@ -4161,9 +4163,11 @@ L.control.layers(null, testing, {collapsed:false}).addTo(map);
 map.on('zoomend', function() {
     if (map.getZoom() >=6){
             map.removeLayer(zone);
+			map.removeLayer(cachetier);
     }
     else {
             map.addLayer(zone);
+			map.addLayer(cachetier);
         }
 });
 
