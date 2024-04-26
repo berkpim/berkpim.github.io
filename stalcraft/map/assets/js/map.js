@@ -230,6 +230,7 @@ var snork = new L.layerGroup();
 var bloodsucker = new L.layerGroup();
 var zombie = new L.layerGroup();
 var rescue = new L.layerGroup();
+var shootout = new L.layerGroup();
 var banditcamp = new L.layerGroup();
 var stalkercamp = new L.layerGroup();
 var military = new L.layerGroup();
@@ -270,7 +271,8 @@ var main = {
 	"Snorks": snork,
 	"Bloodsuckers": bloodsucker,
 	"Zombies": zombie,
-	"Rescue": rescue,
+	"Help Allies": rescue,
+	"Shootout": shootout,
 	"Bandit Camp": banditcamp,
 	"Stalker Camp": stalkercamp,
 	"Military": military,
@@ -324,6 +326,7 @@ var bubbleIcon = L.icon({iconUrl: 'assets/images/icons/bubble-icon.png', iconSiz
 var zombieIcon = L.icon({iconUrl: 'assets/images/icons/zombie-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var mutantIcon = L.icon({iconUrl: 'assets/images/icons/mutant-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var rescueIcon = L.icon({iconUrl: 'assets/images/icons/rescue-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
+var shootoutIcon = L.icon({iconUrl: 'assets/images/icons/shootout-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var campIcon = L.icon({iconUrl: 'assets/images/icons/camp-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var militaryIcon = L.icon({iconUrl: 'assets/images/icons/military-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
 var goldMilitaryIcon = L.icon({iconUrl: 'assets/images/icons/gold-military-event.png', iconSize: [28, 28], iconAnchor: [14, 14]});
@@ -2570,6 +2573,15 @@ var rescueMarkerPopup = L.popup().setContent("Help Allies");
 var rescueMarker = L.marker(map.unproject([5020, 2748], map.getMaxZoom()), {icon:rescueIcon}).bindPopup(rescueMarkerPopup).addTo(rescue);
 
 
+// shootout
+var shootoutMarkerPopup = L.popup().setContent("Shootout");
+var shootoutMarker = L.marker(map.unproject([8327, 9625], map.getMaxZoom()), {icon:shootoutIcon}).bindPopup(shootoutMarkerPopup).addTo(shootout);
+var shootoutMarkerPopup = L.popup().setContent("Shootout");
+var shootoutMarker = L.marker(map.unproject([8493, 8748], map.getMaxZoom()), {icon:shootoutIcon}).bindPopup(shootoutMarkerPopup).addTo(shootout);
+var shootoutMarkerPopup = L.popup().setContent("Shootout");
+var shootoutMarker = L.marker(map.unproject([8589, 9139], map.getMaxZoom()), {icon:shootoutIcon}).bindPopup(shootoutMarkerPopup).addTo(shootout);
+
+
 // monolith squad
 // the red forest
 var monolithSquadMarkerPopup = L.popup().setContent("Monolith Squad");
@@ -2691,6 +2703,8 @@ var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([5719, 858], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([6838, 663], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
+var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
+var airdropMarker = L.marker(map.unproject([6478, 1114], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);
 // yanov ourskirts
 var airdropMarkerPopup = L.popup().setContent("Red Airdrop");
 var airdropMarker = L.marker(map.unproject([9430, 1850], map.getMaxZoom()), {icon:redAirdropIcon}).bindPopup(airdropMarkerPopup).addTo(redairdrop);

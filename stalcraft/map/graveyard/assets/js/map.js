@@ -245,7 +245,7 @@ var main = {
 	"Snorks": snork,
 	"Bloodsuckers": bloodsucker,
 	"Zombies": zombie,
-	"Rescue": rescue,
+	"Help Allies": rescue,
 	"Anomalies" : anomaly,
 	"Caches": cache
 }
