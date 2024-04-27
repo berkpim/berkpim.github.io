@@ -21,215 +21,216 @@ var mapNE = [8200, 0];
 map.setMaxBounds(new L.LatLngBounds(map.unproject(mapSW, map.getMaxZoom()), map.unproject(mapNE, map.getMaxZoom())));
 
 
-// leaflet-geoman controls options
-map.pm.addControls({  
-	position: 'topleft',
-	customControls: true,
-  }); 
+// // leaflet-geoman controls options
+// map.pm.addControls({  
+// 	position: 'topleft',
+// 	customControls: true,
+//   }); 
 
-// Add new buttons
-map.pm.Toolbar.copyDrawControl('Polygon', {
-	name: 'cache1',
-		block: 'custom',
-		title: 'Tier 1 Cache',
-	});
-map.pm.Draw.cache1.setPathOptions({color: '#7DEF7D'});
+// // Add new buttons
+// map.pm.Toolbar.copyDrawControl('Polygon', {
+// 	name: 'cache1',
+// 		block: 'custom',
+// 		title: 'Tier 1 Cache',
+// 	});
+// map.pm.Draw.cache1.setPathOptions({color: '#7DEF7D'});
 
-map.pm.Toolbar.copyDrawControl('Polygon', {
-	name: 'cache2',
-		block: 'custom',
-		title: 'Tier 2 Cache',
-	});
-map.pm.Draw.cache2.setPathOptions({color: '#4B8DFF'});
+// map.pm.Toolbar.copyDrawControl('Polygon', {
+// 	name: 'cache2',
+// 		block: 'custom',
+// 		title: 'Tier 2 Cache',
+// 	});
+// map.pm.Draw.cache2.setPathOptions({color: '#4B8DFF'});
 
-map.pm.Toolbar.copyDrawControl('Polygon', {
-	name: 'cache3',
-		block: 'custom',
-		title: 'Tier 3 Cache',
-	});
-map.pm.Draw.cache3.setPathOptions({color: '#D968C4'});
+// map.pm.Toolbar.copyDrawControl('Polygon', {
+// 	name: 'cache3',
+// 		block: 'custom',
+// 		title: 'Tier 3 Cache',
+// 	});
+// map.pm.Draw.cache3.setPathOptions({color: '#D968C4'});
 
-map.pm.Toolbar.copyDrawControl('Polygon', {
-	name: 'cache4',
-		block: 'custom',
-		title: 'Tier 4 Cache',
-	});
-map.pm.Draw.cache4.setPathOptions({color: '#FF5767'});
+// map.pm.Toolbar.copyDrawControl('Polygon', {
+// 	name: 'cache4',
+// 		block: 'custom',
+// 		title: 'Tier 4 Cache',
+// 	});
+// map.pm.Draw.cache4.setPathOptions({color: '#FF5767'});
 
-map.pm.Toolbar.copyDrawControl('Circle', {
-	name: 'cache5',
-		block: 'custom',
-		title: 'Tier 4 Cache',
-	});
-map.pm.Draw.cache5.setPathOptions({color: '#7DEF7D'});
+// map.pm.Toolbar.copyDrawControl('Circle', {
+// 	name: 'cache5',
+// 		block: 'custom',
+// 		title: 'Tier 4 Cache',
+// 	});
+// map.pm.Draw.cache5.setPathOptions({color: '#7DEF7D'});
 
-map.pm.Toolbar.copyDrawControl('Circle', {
-	name: 'cache6',
-		block: 'custom',
-		title: 'Tier 2 Cache',
-	});
-map.pm.Draw.cache6.setPathOptions({color: '#4B8DFF'});
+// map.pm.Toolbar.copyDrawControl('Circle', {
+// 	name: 'cache6',
+// 		block: 'custom',
+// 		title: 'Tier 2 Cache',
+// 	});
+// map.pm.Draw.cache6.setPathOptions({color: '#4B8DFF'});
 
-map.pm.Toolbar.copyDrawControl('Circle', {
-	name: 'cache7',
-		block: 'custom',
-		title: 'Tier 3 Cache',
-	});
-map.pm.Draw.cache7.setPathOptions({color: '#D968C4'});
+// map.pm.Toolbar.copyDrawControl('Circle', {
+// 	name: 'cache7',
+// 		block: 'custom',
+// 		title: 'Tier 3 Cache',
+// 	});
+// map.pm.Draw.cache7.setPathOptions({color: '#D968C4'});
 
-map.pm.Toolbar.copyDrawControl('Circle', {
-	name: 'cache8',
-		block: 'custom',
-		title: 'Tier 4 Cache',
-	});
-map.pm.Draw.cache8.setPathOptions({color: '#FF5767'});
+// map.pm.Toolbar.copyDrawControl('Circle', {
+// 	name: 'cache8',
+// 		block: 'custom',
+// 		title: 'Tier 4 Cache',
+// 	});
+// map.pm.Draw.cache8.setPathOptions({color: '#FF5767'});
 
-map.pm.Toolbar.copyDrawControl('Polyline', {
-	name: 'customline',
-		block: 'custom',
-		title: 'Map Boundaries',
-	});
-map.pm.Draw.customline.setPathOptions({color: '#D0CFCF', dashArray: [5, 5]});
+// map.pm.Toolbar.copyDrawControl('Polyline', {
+// 	name: 'customline',
+// 		block: 'custom',
+// 		title: 'Map Boundaries',
+// 	});
+// map.pm.Draw.customline.setPathOptions({color: '#D0CFCF', dashArray: [5, 5]});
 
-map.pm.setGlobalOptions({pinning: true, snappable: false});
+// map.pm.setGlobalOptions({pinning: true, snappable: false});
 
-function generateGeoJson(){
-	var fg = L.featureGroup();    
-	var layers = findLayers(map);
+// function generateGeoJson(){
+// 	var fg = L.featureGroup();    
+// 	var layers = findLayers(map);
   
-	var geo = {
-		type: "FeatureCollection",
-		features: [],
-    };
-	layers.forEach(function(layer){
-		var geoJson = JSON.parse(JSON.stringify(layer.toGeoJSON()));
-		if(!geoJson.properties){
-			geoJson.properties = {};
-    	}
+// 	var geo = {
+// 		type: "FeatureCollection",
+// 		features: [],
+//     };
+// 	layers.forEach(function(layer){
+// 		var geoJson = JSON.parse(JSON.stringify(layer.toGeoJSON()));
+// 		if(!geoJson.properties){
+// 			geoJson.properties = {};
+//     	}
     
-    	geoJson.properties.options = JSON.parse(JSON.stringify(layer.options));
+//     	geoJson.properties.options = JSON.parse(JSON.stringify(layer.options));
     
-		if(layer.options.radius){
-			var radius =  parseFloat(layer.options.radius);
-			if(radius % 1 !== 0) {
-				geoJson.properties.options.radius = radius.toFixed(6);
-			}else{
-				geoJson.properties.options.radius = radius.toFixed(0);
-			}
-		}
+// 		if(layer.options.radius){
+// 			var radius =  parseFloat(layer.options.radius);
+// 			if(radius % 1 !== 0) {
+// 				geoJson.properties.options.radius = radius.toFixed(6);
+// 			}else{
+// 				geoJson.properties.options.radius = radius.toFixed(0);
+// 			}
+// 		}
 
 
-		if (layer instanceof L.Rectangle) {
-			geoJson.properties.type = "rectangle";
-		} else if (layer instanceof L.Circle) {
-			geoJson.properties.type = "circle";
-		} else if (layer instanceof L.CircleMarker) {
-			geoJson.properties.type = "circlemarker";
-		} else if (layer instanceof L.Polygon) {
-			geoJson.properties.type = "polygon";
-		} else if (layer instanceof L.Polyline) {
-			geoJson.properties.type = "polyline";
-		} else if (layer instanceof L.Marker) {
-			geoJson.properties.type = "marker";
-		}
+// 		if (layer instanceof L.Rectangle) {
+// 			geoJson.properties.type = "rectangle";
+// 		} else if (layer instanceof L.Circle) {
+// 			geoJson.properties.type = "circle";
+// 		} else if (layer instanceof L.CircleMarker) {
+// 			geoJson.properties.type = "circlemarker";
+// 		} else if (layer instanceof L.Polygon) {
+// 			geoJson.properties.type = "polygon";
+// 		} else if (layer instanceof L.Polyline) {
+// 			geoJson.properties.type = "polyline";
+// 		} else if (layer instanceof L.Marker) {
+// 			geoJson.properties.type = "marker";
+// 		}
 		
-    	geo.features.push(geoJson);
-  	});
-	console.log(JSON.stringify(geo));
-  	alert(JSON.stringify(geo))
-}
+//     	geo.features.push(geoJson);
+//   	});
+// 	console.log(JSON.stringify(geo));
+//   	alert(JSON.stringify(geo))
+// }
 
-function findLayers(map) {
-	var layers = [];
-	map.eachLayer(layer => {
-		if (
-			layer instanceof L.Polyline ||
-			layer instanceof L.Marker ||
-			layer instanceof L.Circle ||
-			layer instanceof L.CircleMarker
-		) {
-			layers.push(layer);
-		}
-	});
+// function findLayers(map) {
+// 	var layers = [];
+// 	map.eachLayer(layer => {
+// 		if (
+// 			layer instanceof L.Polyline ||
+// 			layer instanceof L.Marker ||
+// 			layer instanceof L.Circle ||
+// 			layer instanceof L.CircleMarker
+// 		) {
+// 			layers.push(layer);
+// 		}
+// 	});
 
-    // filter out layers that don't have the leaflet-geoman instance
-    layers = layers.filter(layer => !!layer.pm);
+//     // filter out layers that don't have the leaflet-geoman instance
+//     layers = layers.filter(layer => !!layer.pm);
 
-    // filter out everything that's leaflet-geoman specific temporary stuff
-    layers = layers.filter(layer => !layer._pmTempLayer);
+//     // filter out everything that's leaflet-geoman specific temporary stuff
+//     layers = layers.filter(layer => !layer._pmTempLayer);
 
-    return layers;
-}
+//     return layers;
+// }
   
-function importGeo(){
-	var prom = prompt();
-	if(prom){
-		importGeoJSON(JSON.parse(prom));
-	}
-}
+// function importGeo(){
+// 	var prom = prompt();
+// 	if(prom){
+// 		importGeoJSON(JSON.parse(prom));
+// 	}
+// }
   
-function importGeoJSON(feature){
-	var geoLayer = L.geoJSON(feature, {
-		style: function (feature) {
-			return feature.properties.options;
-		},
-			pointToLayer: function(feature, latlng){
-				switch (feature.properties.type) {
-					case "marker": return new L.Marker(latlng);
-					case "circle": return new L.Circle(latlng, feature.properties.options);
-					case "circlemarker": return new L.CircleMarker(latlng, feature.properties.options);
-			}
-		}
-	});
+// function importGeoJSON(feature){
+// 	var geoLayer = L.geoJSON(feature, {
+// 		style: function (feature) {
+// 			return feature.properties.options;
+// 		},
+// 			pointToLayer: function(feature, latlng){
+// 				switch (feature.properties.type) {
+// 					case "marker": return new L.Marker(latlng);
+// 					case "circle": return new L.Circle(latlng, feature.properties.options);
+// 					case "circlemarker": return new L.CircleMarker(latlng, feature.properties.options);
+// 			}
+// 		}
+// 	});
 	
-	geoLayer.getLayers().forEach((layer) => {	
-		if (layer._latlng) {
-			var latlng = layer.getLatLng();
-		} else {
-			var latlng = layer.getLatLngs();
-		}
-		switch (layer.feature.properties.type) {
-			case "rectangle":
-				new L.Rectangle(latlng,  layer.options).addTo(map);
-				break;
-			case "circle":
-					console.log(layer.options)
-				new L.Circle(latlng, layer.options).addTo(map);
-				break;
-			case "polygon":
-				new L.Polygon(latlng, layer.options).addTo(map);
-				break;
-			case "polyline":
-				new L.Polyline(latlng, layer.options).addTo(map);
-				break;
-			case "marker":
-				new L.Marker(latlng, layer.options).addTo(map);
-				break;
-			case "circlemarker":
-				new L.CircleMarker(latlng, layer.options).addTo(map);
-				break;
-		}
-	})
-}
+// 	geoLayer.getLayers().forEach((layer) => {	
+// 		if (layer._latlng) {
+// 			var latlng = layer.getLatLng();
+// 		} else {
+// 			var latlng = layer.getLatLngs();
+// 		}
+// 		switch (layer.feature.properties.type) {
+// 			case "rectangle":
+// 				new L.Rectangle(latlng,  layer.options).addTo(map);
+// 				break;
+// 			case "circle":
+// 					console.log(layer.options)
+// 				new L.Circle(latlng, layer.options).addTo(map);
+// 				break;
+// 			case "polygon":
+// 				new L.Polygon(latlng, layer.options).addTo(map);
+// 				break;
+// 			case "polyline":
+// 				new L.Polyline(latlng, layer.options).addTo(map);
+// 				break;
+// 			case "marker":
+// 				new L.Marker(latlng, layer.options).addTo(map);
+// 				break;
+// 			case "circlemarker":
+// 				new L.CircleMarker(latlng, layer.options).addTo(map);
+// 				break;
+// 		}
+// 	})
+// }
 
 
 // layer groups
 // main
-var zone = new L.layerGroup();
-var mapchange = new L.layerGroup();
+var zone = new L.layerGroup().addTo(map);
+var mapchange = new L.layerGroup().addTo(map);
 // events
-var rodent = new L.layerGroup();
-var dog = new L.layerGroup();
-var flesh = new L.layerGroup();
-var boar = new L.layerGroup();
-var snork = new L.layerGroup();
-var bloodsucker = new L.layerGroup();
-var zombie = new L.layerGroup();
-var rescue = new L.layerGroup();
+var rodent = new L.layerGroup().addTo(map);
+var dog = new L.layerGroup().addTo(map);
+var flesh = new L.layerGroup().addTo(map);
+var boar = new L.layerGroup().addTo(map);
+var snork = new L.layerGroup().addTo(map);
+var bloodsucker = new L.layerGroup().addTo(map);
+var zombie = new L.layerGroup().addTo(map);
+var rescue = new L.layerGroup().addTo(map);
 //anomaly
-var anomaly = new L.layerGroup();
+var anomaly = new L.layerGroup().addTo(map);
 // caches
 var cache = new L.layerGroup();
+var cachetier = new L.layerGroup();
 // others
 var shelter = new L.layerGroup();
 var test = new L.layerGroup();
@@ -247,7 +248,8 @@ var main = {
 	"Zombies": zombie,
 	"Help Allies": rescue,
 	"Anomalies" : anomaly,
-	"Caches": cache
+	"Caches": cache,
+	"Cache Tier": cachetier
 }
 
 var secondary = {
@@ -411,17 +413,28 @@ var stasisMarker = L.marker(map.unproject([4856, 2589], map.getMaxZoom()), {icon
 // load caches from json file
 function cacheStyle(feature) {
     return {
-        fillColor: feature.properties.options.color,
         color: feature.properties.options.color
     };
 }
 
 L.geoJson(cacheLibrary, {
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng);
-    },
 	style: cacheStyle
 }).addTo(cache);
+// battery
+var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([3634, 4274], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
+var batteryMarkerPopup = L.popup().setContent("[Nv.3] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([3619, 3805], map.getMaxZoom()), {icon:battery3Icon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
+var batteryMarkerPopup = L.popup().setContent("[Nv.3] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([4602, 3770], map.getMaxZoom()), {icon:battery3Icon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
+var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([5186, 3634], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
+var batteryMarkerPopup = L.popup().setContent("[Nv.1] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([3816, 3316], map.getMaxZoom()), {icon:batteryIcon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
+var batteryMarkerPopup = L.popup().setContent("[Nv.2] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([4355, 2449], map.getMaxZoom()), {icon:battery2Icon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
+var batteryMarkerPopup = L.popup().setContent("[Nv.2] Remains of Batteries");
+var batteryMarker = L.marker(map.unproject([4845, 2576], map.getMaxZoom()), {icon:battery2Icon}).bindPopup(batteryMarkerPopup).addTo(cachetier);
 
 
 // add layer control

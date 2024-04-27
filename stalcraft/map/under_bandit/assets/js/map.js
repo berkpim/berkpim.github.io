@@ -35,7 +35,7 @@ var mercenary = new L.layerGroup().addTo(map);
 var anomaly = new L.layerGroup().addTo(map);
 // others
 var shelter = new L.layerGroup();
-var test = new L.layerGroup().addTo(map);
+var test = new L.layerGroup();
 
 
 var main = {
