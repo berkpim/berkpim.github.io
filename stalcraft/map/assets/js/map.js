@@ -4160,16 +4160,16 @@ L.control.layers(null, main, {collapsed:false}).addTo(map);
 L.control.layers(null, secondary, {collapsed:false}).addTo(map);
 L.control.layers(null, testing, {collapsed:false}).addTo(map);
 // remove zone names layer on 'x' zoom
-map.on('zoomend', function() {
-    if (map.getZoom() >=6){
-            map.removeLayer(zone);
-			map.removeLayer(cachetier);
-    }
-    else {
-            map.addLayer(zone);
-			map.addLayer(cachetier);
-        }
-});
+// map.on('zoomend', function() {
+//     if (map.getZoom() >=6){
+//             map.removeLayer(zone);
+// 			map.removeLayer(cachetier);
+//     }
+//     else {
+//             map.addLayer(zone);
+// 			map.addLayer(cachetier);
+//         }
+// });
 
 
 // disable right click menu
